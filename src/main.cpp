@@ -21,6 +21,8 @@ int main() {
     gameField.printField();
     gameField.attackCell(3, 0, shipManager);
     gameField.printField();
+    gameField.attackCell(3, 0, shipManager);
+    gameField.printField();
 
     return 0;
 }
