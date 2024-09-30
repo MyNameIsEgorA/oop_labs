@@ -1,5 +1,4 @@
 #include "field.h"
-#include <iostream>
 
 GameField::GameField(int width, int height) : width_(width), height_(height) {
     if (width <= 0 || height <= 0) {
@@ -8,79 +7,53 @@ GameField::GameField(int width, int height) : width_(width), height_(height) {
     field_.resize(height, std::vector<CellState>(width, CellState::Unknown));
 }
 
-GameField::GameField(const GameField& other) : width_(other.width_), height_(other.height_) {
-    field_ = other.field_;
-    shipPositions_ = other.shipPositions_;
+GameField::GameField(const GameField& other) 
+    : width_(other.width_), height_(other.height_), field_(other.field_), shipPositions_(other.shipPositions_) {
+    for (auto& pos : shipPositions_) {
+        pos.ship = new Ship(*pos.ship);
+    }
 }
 
-GameField::GameField(GameField&& other) noexcept : width_(other.width_), height_(other.height_), field_(std::move(other.field_)), shipPositions_(std::move(other.shipPositions_)) {
+GameField::GameField(GameField&& other) noexcept
+    : width_(other.width_), height_(other.height_), field_(std::move(other.field_)), shipPositions_(std::move(other.shipPositions_)) {
+    for (auto& pos : shipPositions_) {
+        pos.ship = other.shipPositions_[&pos - &shipPositions_[0]].ship;
+        other.shipPositions_[&pos - &shipPositions_[0]].ship = nullptr;
+    }
     other.width_ = 0;
     other.height_ = 0;
 }
 
-GameField& GameField::operator=(const GameField& other) {
-    if (this != &other) {
-        width_ = other.width_;
-        height_ = other.height_;
-        field_ = other.field_;
-        shipPositions_ = other.shipPositions_;
-    }
-    return *this;
-}
-
-GameField& GameField::operator=(GameField&& other) noexcept {
-    if (this != &other) {
-        width_ = other.width_;
-        height_ = other.height_;
-        field_ = std::move(other.field_);
-        shipPositions_ = std::move(other.shipPositions_);
-        other.width_ = 0;
-        other.height_ = 0;
-    }
-    return *this;
-}
-
-void GameField::placeShip(Ship& ship, int x, int y) {
-    if (ship.getOrientation() == Orientation::Horizontal) {
+void GameField::placeShip(Ship& ship, int x, int y, Orientation orientation) {
+    if (orientation == Orientation::Horizontal) {
         checkHorizontalPlacement(ship, x, y);
         placeHorizontalShip(ship, x, y);
     } else {
         checkVerticalPlacement(ship, x, y);
         placeVerticalShip(ship, x, y);
     }
-    shipPositions_.emplace_back(&ship, x, y);
+    shipPositions_.emplace_back(&ship, x, y, orientation);
 }
 
 void GameField::attackCell(int x, int y, ShipManager& shipManager) {
     if (x < 0 || x >= width_ || y < 0 || y >= height_) {
         throw std::out_of_range("Invalid cell coordinates");
     }
-    if (field_[y][x] == CellState::Ship) {
+
+    if (field_[y][x] == CellState::Ship || field_[y][x] == CellState::Damaged) {
         for (const auto& pos : shipPositions_) {
-            if (pos.ship->getOrientation() == Orientation::Horizontal) {
-                if (y == pos.y && x >= pos.x && x < pos.x + pos.ship->getLength()) {
-                    pos.ship->hitSegment(x - pos.x);
-                    if (pos.ship->getSegmentState(x - pos.x) == SegmentState::Damaged) {
-                        field_[y][x] = CellState::Damaged;
-                    } else if (pos.ship->getSegmentState(x - pos.x) == SegmentState::Destroyed) {
-                        field_[y][x] = CellState::Empty;
-                    }
-                    if (pos.ship->isDestroyed()) {
-                        markShipDestroyed(pos.ship, pos.x, pos.y);
-                    }
+            if (pos.orientation == Orientation::Horizontal) {
+                if (y == pos.y && x >= pos.x && x < pos.x + static_cast<int>(pos.ship->getLength())) {
+                    int segmentIndex = x - pos.x;
+                    shipManager.hitShipSegment(*pos.ship, segmentIndex);
+                    updateCellState(x, y, pos.ship, segmentIndex);
                     break;
                 }
             } else {
-                if (x == pos.x && y >= pos.y && y < pos.y + pos.ship->getLength()) {
-                    pos.ship->hitSegment(y - pos.y);
-                    if (pos.ship->getSegmentState(y - pos.y) == SegmentState::Damaged) {
-                        field_[y][x] = CellState::Damaged;
-                    } else if (pos.ship->getSegmentState(y - pos.y) == SegmentState::Destroyed) {
-                        field_[y][x] = CellState::Empty;
-                    }
-                    if (pos.ship->isDestroyed()) {
-                        markShipDestroyed(pos.ship, pos.x, pos.y);
-                    }
+                if (x == pos.x && y >= pos.y && y < pos.y + static_cast<int>(pos.ship->getLength())) {
+                    int segmentIndex = y - pos.y;
+                    shipManager.hitShipSegment(*pos.ship, segmentIndex);
+                    updateCellState(x, y, pos.ship, segmentIndex);
                     break;
                 }
             }
@@ -110,14 +83,25 @@ void GameField::printField() const {
         }
         std::cout << "\n";
     }
-    std::cout << "\n\n\n";
+    std::cout << "\n";
+}
+
+GameField::ShipPosition::ShipPosition(Ship* s, int xPos, int yPos, Orientation o)
+    : ship(s), x(xPos), y(yPos), orientation(o) {}
+
+void GameField::updateCellState(int x, int y, Ship* ship, int segmentIndex) {
+    if (ship->getSegmentState(segmentIndex) == SegmentState::Damaged) {
+        field_[y][x] = CellState::Damaged;
+    } else if (ship->getSegmentState(segmentIndex) == SegmentState::Destroyed) {
+        field_[y][x] = CellState::Empty;
+    }
 }
 
 void GameField::checkHorizontalPlacement(const Ship& ship, int x, int y) const {
-    if (x + ship.getLength() > width_) {
+    if (x + static_cast<int>(ship.getLength()) > width_) {
         throw std::invalid_argument("Ship placement out of bounds");
     }
-    for (int i = 0; i < ship.getLength(); ++i) {
+    for (int i = 0; i < static_cast<int>(ship.getLength()); ++i) {
         if (field_[y][x + i] != CellState::Unknown) {
             throw std::invalid_argument("Ship placement overlaps with another ship");
         }
@@ -134,10 +118,10 @@ void GameField::checkHorizontalPlacement(const Ship& ship, int x, int y) const {
 }
 
 void GameField::checkVerticalPlacement(const Ship& ship, int x, int y) const {
-    if (y + ship.getLength() > height_) {
+    if (y + static_cast<int>(ship.getLength()) > height_) {
         throw std::invalid_argument("Ship placement out of bounds");
     }
-    for (int i = 0; i < ship.getLength(); ++i) {
+    for (int i = 0; i < static_cast<int>(ship.getLength()); ++i) {
         if (field_[y + i][x] != CellState::Unknown) {
             throw std::invalid_argument("Ship placement overlaps with another ship");
         }
@@ -154,25 +138,13 @@ void GameField::checkVerticalPlacement(const Ship& ship, int x, int y) const {
 }
 
 void GameField::placeHorizontalShip(const Ship& ship, int x, int y) {
-    for (int i = 0; i < ship.getLength(); ++i) {
+    for (int i = 0; i < static_cast<int>(ship.getLength()); ++i) {
         field_[y][x + i] = CellState::Ship;
     }
 }
 
 void GameField::placeVerticalShip(const Ship& ship, int x, int y) {
-    for (int i = 0; i < ship.getLength(); ++i) {
+    for (int i = 0; i < static_cast<int>(ship.getLength()); ++i) {
         field_[y + i][x] = CellState::Ship;
-    }
-}
-
-void GameField::markShipDestroyed(Ship* ship, int x, int y) {
-    if (ship->getOrientation() == Orientation::Horizontal) {
-        for (int i = 0; i < ship->getLength(); ++i) {
-            field_[y][x + i] = CellState::Empty;
-        }
-    } else {
-        for (int i = 0; i < ship->getLength(); ++i) {
-            field_[y + i][x] = CellState::Empty;
-        }
     }
 }

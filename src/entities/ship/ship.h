@@ -1,32 +1,34 @@
 #ifndef SHIP_H
 #define SHIP_H
 
-#include <vector>
 #include <stdexcept>
+#include <vector>
+#include <algorithm>
 
-enum class SegmentState {
+enum class SegmentState { 
     Intact,
-    Damaged,  
-    Destroyed  
+    Damaged,
+    Destroyed
 };
 
-enum class Orientation {
-    Horizontal,
-    Vertical
+enum class ShipSize {
+    SMALL = 1,
+    MEDIUM = 2,
+    BIG = 3,
+    LARGE = 4
 };
 
 class Ship {
 public:
-    Ship(int length, Orientation orientation);
-    void hitSegment(int segmentIndex);
+    Ship(ShipSize length);
+
+    ShipSize getLength() const;
+    SegmentState getSegmentState(int index) const;
+    void hitSegment(int index);
     bool isDestroyed() const;
-    int getLength() const;
-    Orientation getOrientation() const;
-    SegmentState getSegmentState(int segmentIndex) const;
 
 private:
-    int length_;
-    Orientation orientation_;
+    ShipSize length_;
     std::vector<SegmentState> segments_;
 };
 

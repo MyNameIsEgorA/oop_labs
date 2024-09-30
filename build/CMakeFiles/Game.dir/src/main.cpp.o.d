@@ -150,6 +150,12 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/bits/vector.tcc \
  /home/egor/oop_labs/src/entities/field/field.h \
  /home/egor/oop_labs/src/entities/field/../ship/ship.h \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/ship_manager.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/../../entities/ship/ship.h \
+ /home/egor/oop_labs/src/entities/ship/ship.h \
  /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h

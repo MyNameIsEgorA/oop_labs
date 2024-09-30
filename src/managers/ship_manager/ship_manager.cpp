@@ -1,8 +1,8 @@
 #include "ship_manager.h"
 
-ShipManager::ShipManager(const std::vector<std::pair<int, int>>& shipSizes) {
+ShipManager::ShipManager(const std::vector<ShipSize>& shipSizes) {
     for (const auto& size : shipSizes) {
-        ships_.emplace_back(size.first, static_cast<Orientation>(size.second));
+        ships_.emplace_back(size);
     }
 }
 
@@ -15,4 +15,8 @@ Ship& ShipManager::getShip(int index) {
 
 int ShipManager::getShipCount() const {
     return ships_.size();
+}
+
+void ShipManager::hitShipSegment(Ship& ship, int segmentIndex) {
+    ship.hitSegment(segmentIndex);
 }

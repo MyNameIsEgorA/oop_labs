@@ -1,3 +1,4 @@
-cd src
-g++ main.cpp
-./a.out
+cd build
+cmake ..
+make
+./Game

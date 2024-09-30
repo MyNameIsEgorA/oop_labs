@@ -150,5 +150,10 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
  /home/egor/oop_labs/src/entities/field/../ship/ship.h \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/ship_manager.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/../../entities/ship/ship.h

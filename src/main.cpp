@@ -1,28 +1,27 @@
 #include <iostream>
 #include <vector>
 #include "entities/field/field.h"
+#include "entities/ship/ship.h"
 #include "managers/ship_manager/ship_manager.h"
 
 int main() {
-    std::vector<std::pair<int, int>> shipSizes = {{4, 0}, {3, 0}, {3, 0}, {2, 0}, {2, 0}, {2, 0}, {4, 0}, {3, 0}, {1, 0}, {1, 0}};
-    ShipManager shipManager(shipSizes);
-
-    GameField gameField(10, 10);
-
+    // * - поломан, но живой; . - пусто; # - целый; ? - неизвестно
     try {
-        gameField.placeShip(shipManager.getShip(7), 3, 0);
-        gameField.placeShip(shipManager.getShip(8), 6, 5);
-    } catch (const std::exception& e) {
-        std::cerr << "Error placing ships: " << e.what() << std::endl;
-    }
+        ShipManager shipManager({ShipSize::BIG, ShipSize::SMALL, ShipSize::MEDIUM, ShipSize::LARGE});
+        GameField field(10, 10);
 
-    gameField.printField();
-    gameField.attackCell(3, 0, shipManager);
-    gameField.printField();
-    gameField.attackCell(3, 0, shipManager);
-    gameField.printField();
-    gameField.attackCell(3, 0, shipManager);
-    gameField.printField();
+        field.placeShip(shipManager.getShip(0), 0, 0, Orientation::Horizontal);
+        field.placeShip(shipManager.getShip(3), 6, 6, Orientation::Vertical);
+
+        field.attackCell(0, 0, shipManager);
+        field.attackCell(0, 0, shipManager);
+        field.attackCell(9, 9, shipManager);
+        field.attackCell(1, 0, shipManager);
+
+        field.printField();
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 
     return 0;
 }
