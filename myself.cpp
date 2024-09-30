@@ -2,26 +2,22 @@
 #include <vector>
 #include <stdexcept>
 
-// Enum для состояния сегмента корабля
-enum class SegmentState { Intact, // целый
-                         Damaged, // поврежденный
-                         Destroyed // уничтоженный
+enum class SegmentState { Intact,
+                         Damaged,
+                         Destroyed
 };
 
-// Enum для ориентации корабля
 enum class Orientation { Horizontal, Vertical };
 
-// Enum для состояния клетки игрового поля
-enum class CellState { Unknown, // неизвестно
-                       Empty, // пустая
-                       Ship, // корабль
-                       Damaged // поврежденный сегмент корабля
+enum class CellState { Unknown, 
+                       Empty,
+                       Ship, 
+                       Damaged 
 };
 
-// Класс корабля
 class Ship {
 public:
-    Ship(int length, Orientation orientation) : length_(length), orientation_(orientation) {
+    Ship(int length) : length_(length) {
         if (length < 1 || length > 4) {
             throw std::invalid_argument("Invalid ship length");
         }
@@ -29,7 +25,6 @@ public:
     }
 
     int getLength() const { return length_; }
-    Orientation getOrientation() const { return orientation_; }
 
     SegmentState getSegmentState(int index) const {
         if (index < 0 || index >= length_) {
@@ -60,18 +55,14 @@ public:
 
 private:
     int length_;
-    Orientation orientation_;
     std::vector<SegmentState> segments_;
 };
 
-// Класс менеджера кораблей
 class ShipManager {
 public:
-    ShipManager(const std::vector<std::pair<int, int>>& shipSpecs) {
-        for (const auto& spec : shipSpecs) {
-            for (int i = 0; i < spec.second; ++i) {
-                ships_.emplace_back(spec.first, Orientation::Horizontal);
-            }
+    ShipManager(const std::vector<int>& shipLengths) {
+        for (const auto& length : shipLengths) {
+            ships_.emplace_back(length);
         }
     }
 
@@ -92,7 +83,6 @@ private:
     std::vector<Ship> ships_;
 };
 
-// Класс игрового поля
 class GameField {
 public:
     GameField(int width, int height) : width_(width), height_(height) {
@@ -179,7 +169,6 @@ private:
             field_[y][x] = CellState::Damaged;
         } else if (ship->getSegmentState(segmentIndex) == SegmentState::Destroyed) {
             field_[y][x] = CellState::Empty;
-            markShipDestroyed(ship, x, y);
         }
     }
 
@@ -238,39 +227,26 @@ private:
             field_[y + i][x] = CellState::Ship;
         }
     }
-
-    void markShipDestroyed(Ship* ship, int x, int y) {
-        if (ship->getOrientation() == Orientation::Horizontal) {
-            for (int i = 0; i < ship->getLength(); ++i) {
-                field_[y][x + i] = CellState::Empty;
-            }
-        } else {
-            for (int i = 0; i < ship->getLength(); ++i) {
-                field_[y + i][x] = CellState::Empty;
-            }
-        }
-    }
 };
 
 int main() {
+    // * - поломан, но живой, . - пусто, # - целый, ? - неизвестно
     try {
-        ShipManager shipManager({{4, 1}, {3, 2}, {2, 3}, {1, 4}});
+        ShipManager shipManager({4, 3, 3, 2, 2, 2, 1, 1, 1, 1});
         GameField field(10, 10);
 
-        // Размещение кораблей
-        // field.placeShip(shipManager.getShip(0), 0, 0, Orientation::Horizontal);
-        field.placeShip(shipManager.getShip(1), 2, 0, Orientation::Vertical);
-        field.placeShip(shipManager.getShip(2), 4, 4, Orientation::Horizontal);
-        // field.placeShip(shipManager.getShip(3), 6, 6, Orientation::Vertical);
+        field.placeShip(shipManager.getShip(0), 0, 0, Orientation::Horizontal);
+        // field.placeShip(shipManager.getShip(1), 2, 0, Orientation::Vertical);
+        // field.placeShip(shipManager.getShip(2), 4, 4, Orientation::Horizontal);
+        field.placeShip(shipManager.getShip(3), 6, 6, Orientation::Vertical);
 
-        // Атака поля
         field.attackCell(0, 0, shipManager);
         field.attackCell(0, 0, shipManager);
-        field.attackCell(1, 0, shipManager);
-        field.attackCell(2, 0, shipManager);
-        field.attackCell(2, 1, shipManager);
-        field.attackCell(2, 0, shipManager);
-        field.attackCell(3, 0, shipManager);
+        // field.attackCell(1, 0, shipManager);
+        // field.attackCell(2, 0, shipManager);
+        // field.attackCell(2, 1, shipManager);
+        // field.attackCell(2, 0, shipManager);
+        // field.attackCell(3, 0, shipManager);
 
         field.printField();
     } catch (const std::exception& e) {
