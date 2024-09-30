@@ -46,8 +46,10 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: \
  /usr/include/c++/13/bits/stl_function.h \
  /usr/include/c++/13/backward/binders.h \
  /usr/include/c++/13/bits/range_access.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/stdexcept \
- /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/vector.tcc \
+ /home/egor/oop_labs/src/managers/ship_manager/../../entities/ship/ship.h \
+ /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
+ /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
@@ -116,5 +118,4 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
- /usr/include/c++/13/bits/basic_string.tcc \
- /home/egor/oop_labs/src/managers/ship_manager/../../entities/ship/ship.h
+ /usr/include/c++/13/bits/basic_string.tcc

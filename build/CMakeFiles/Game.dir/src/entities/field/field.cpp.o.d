@@ -116,13 +116,9 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
- /usr/include/c++/13/bits/basic_string.tcc \
- /home/egor/oop_labs/src/entities/field/../ship/ship.h \
- /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/ship_manager.h \
- /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/../../entities/ship/ship.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
- /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
- /usr/include/c++/13/ext/atomicity.h \
+ /usr/include/c++/13/bits/basic_string.tcc /usr/include/c++/13/iostream \
+ /usr/include/c++/13/ostream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
@@ -152,4 +148,7 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc
+ /usr/include/c++/13/bits/istream.tcc \
+ /home/egor/oop_labs/src/entities/field/../ship/ship.h \
+ /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/ship_manager.h \
+ /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/../../entities/ship/ship.h

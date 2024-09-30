@@ -193,9 +193,7 @@ CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o: /home/egor/oop_labs/src/entiti
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
-  /usr/include/c++/13/algorithm \
   /usr/include/c++/13/backward/binders.h \
-  /usr/include/c++/13/bits/algorithmfwd.h \
   /usr/include/c++/13/bits/alloc_traits.h \
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/basic_string.h \
@@ -226,21 +224,17 @@ CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o: /home/egor/oop_labs/src/entiti
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
-  /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
-  /usr/include/c++/13/bits/stl_heap.h \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
   /usr/include/c++/13/bits/stl_pair.h \
-  /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/stringfwd.h \
-  /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/utility.h \
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
@@ -342,6 +336,7 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
   /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/entities/field/field.h \
+  /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -672,12 +667,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /home/egor/oop_labs/src/main.cpp:
 
-/usr/include/c++/13/bits/stl_heap.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
-
-/usr/include/c++/13/algorithm:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
@@ -712,13 +701,9 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
-/usr/include/c++/13/bits/stl_algo.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/c++/13/bits/stl_tempbuf.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -821,8 +806,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 /usr/include/features.h:
 
 /usr/include/c++/13/backward/binders.h:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/stringfwd.h:
 
