@@ -25,6 +25,8 @@ public:
     GameField(int width, int height);
     GameField(const GameField& other);
     GameField(GameField&& other) noexcept;
+    GameField& operator=(const GameField& other);
+    GameField& operator=(GameField&& other) noexcept;
 
     void placeShip(Ship& ship, int x, int y, Orientation orientation);
     void attackCell(int x, int y, ShipManager& shipManager);

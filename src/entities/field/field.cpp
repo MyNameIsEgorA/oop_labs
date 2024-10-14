@@ -7,7 +7,7 @@ GameField::GameField(int width, int height) : width_(width), height_(height) {
     field_.resize(height, std::vector<CellState>(width, CellState::Unknown));
 }
 
-GameField::GameField(const GameField& other) 
+GameField::GameField(const GameField& other)
     : width_(other.width_), height_(other.height_), field_(other.field_), shipPositions_(other.shipPositions_) {
     for (auto& pos : shipPositions_) {
         pos.ship = new Ship(*pos.ship);
@@ -16,13 +16,51 @@ GameField::GameField(const GameField& other)
 
 GameField::GameField(GameField&& other) noexcept
     : width_(other.width_), height_(other.height_), field_(std::move(other.field_)), shipPositions_(std::move(other.shipPositions_)) {
-    for (auto& pos : shipPositions_) {
-        pos.ship = other.shipPositions_[&pos - &shipPositions_[0]].ship;
-        other.shipPositions_[&pos - &shipPositions_[0]].ship = nullptr;
+    for (auto& pos : other.shipPositions_) {
+        pos.ship = nullptr;
     }
-    other.width_ = 0;
-    other.height_ = 0;
 }
+
+GameField& GameField::operator=(const GameField& other) {
+    if (this != &other) {
+        for (auto& pos : shipPositions_) {
+            delete pos.ship;
+        }
+        shipPositions_.clear();
+        field_.clear();
+
+        width_ = other.width_;
+        height_ = other.height_;
+        field_ = other.field_;
+        shipPositions_ = other.shipPositions_;
+
+        for (auto& pos : shipPositions_) {
+            pos.ship = new Ship(*pos.ship);
+        }
+    }
+    return *this;
+}
+
+GameField& GameField::operator=(GameField&& other) noexcept {
+    if (this != &other) {
+        for (auto& pos : shipPositions_) {
+            delete pos.ship;
+        }
+        shipPositions_.clear();
+        field_.clear();
+
+        width_ = other.width_;
+        height_ = other.height_;
+        field_ = std::move(other.field_);
+        shipPositions_ = std::move(other.shipPositions_);
+
+        for (auto& pos : other.shipPositions_) {
+            pos.ship = nullptr;
+        }
+    }
+    return *this;
+}
+
 
 void GameField::placeShip(Ship& ship, int x, int y, Orientation orientation) {
     if (orientation == Orientation::Horizontal) {
