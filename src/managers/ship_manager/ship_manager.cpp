@@ -17,6 +17,18 @@ int ShipManager::getShipCount() const {
     return ships_.size();
 }
 
-void ShipManager::hitShipSegment(Ship& ship, int segmentIndex) {
-    ship.hitSegment(segmentIndex);
+void ShipManager::printShips() const {
+    int destroyedShips = 0;
+    for (int i = 0; i < this->ships_.size(); i++) {
+        std::cout << "Корабль " << i << ":   ";
+        ships_[i].printShipInfo();
+        if (ships_[i].isDestroyed()) {
+            destroyedShips++;
+        }
+    }
+    std::cout << "Итог:\n";
+    std::cout << "Всего кораблей:         " << this->getShipCount() << "\n";
+    std::cout << "Кораблей уничтожено:    " << destroyedShips << "\n";
+    std::cout << "Кораблей не уничтожено: " << this->getShipCount() - destroyedShips << "\n";
 }
+

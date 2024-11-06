@@ -1,15 +1,13 @@
 #ifndef SHIP_H
 #define SHIP_H
 
-#include <stdexcept>
 #include <vector>
-#include <algorithm>
+#include <iostream>
+#include <memory>
 
-enum class SegmentState { 
-    Intact,
-    Damaged,
-    Destroyed
-};
+
+#include "../ship_segment/ship_segment.h"
+
 
 enum class ShipSize {
     SMALL = 1,
@@ -19,17 +17,17 @@ enum class ShipSize {
 };
 
 class Ship {
+
 public:
     Ship(ShipSize length);
-
     ShipSize getLength() const;
-    SegmentState getSegmentState(int index) const;
-    void hitSegment(int index);
     bool isDestroyed() const;
-
+    std::vector<std::shared_ptr<ShipSegment>> getSegments() const;
+    void printShipInfo() const;
 private:
     ShipSize length_;
-    std::vector<SegmentState> segments_;
+    std::vector<std::shared_ptr<ShipSegment>> segments_;
 };
+
 
 #endif // SHIP_H

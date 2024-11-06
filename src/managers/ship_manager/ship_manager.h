@@ -2,6 +2,9 @@
 #define SHIP_MANAGER_H
 
 #include <vector>
+#include <stdexcept>
+#include <iostream>
+
 #include "../../entities/ship/ship.h"
 
 class ShipManager {
@@ -10,7 +13,7 @@ public:
 
     Ship& getShip(int index);
     int getShipCount() const;
-    void hitShipSegment(Ship& ship, int segmentIndex);
+    void printShips() const;
 
 private:
     std::vector<Ship> ships_;

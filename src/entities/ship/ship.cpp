@@ -1,36 +1,44 @@
 #include "ship.h"
 
 Ship::Ship(ShipSize length) : length_(length) {
-    if (length < ShipSize::SMALL || length > ShipSize::LARGE) {
-        throw std::invalid_argument("Invalid ship size");
+    segments_.resize(static_cast<int>(length));
+    for (auto& segment : segments_) {
+        segment = std::make_shared<ShipSegment>();
     }
-    segments_.resize(static_cast<int>(length), SegmentState::Intact);
 }
 
 ShipSize Ship::getLength() const {
-    return length_;
+    return this->length_;
 }
 
-SegmentState Ship::getSegmentState(int index) const {
-    if (index < 0 || index >= static_cast<int>(length_)) {
-        throw std::out_of_range("Invalid segment index");
-    }
-    return segments_[index];
+std::vector<std::shared_ptr<ShipSegment>> Ship::getSegments() const {
+    return this->segments_;
 }
 
-void Ship::hitSegment(int index) {
-    if (index < 0 || index >= static_cast<int>(length_)) {
-        throw std::out_of_range("Invalid segment index");
+void Ship::printShipInfo() const {
+    for (const auto& segment : segments_) {
+        switch (segment->getState()) {
+            case SegmentState::Destroyed:
+                std::cout << "\033[91m\u25A0\033[0m" << " "; // Красный квадрат
+                break;
+            case SegmentState::Intact:
+                std::cout << "\033[92m\u25A0\033[0m" << " "; // Зеленый квадрат
+                break;
+            case SegmentState::Damaged:
+                std::cout << "\033[93m\u25A0\033[0m" << " "; // Желтый квадрат
+                break;
+            default:
+                break;
+        }
     }
-    if (segments_[index] == SegmentState::Intact) {
-        segments_[index] = SegmentState::Damaged;
-    } else if (segments_[index] == SegmentState::Damaged) {
-        segments_[index] = SegmentState::Destroyed;
-    }
+    std::cout << std::endl;
 }
 
 bool Ship::isDestroyed() const {
-    return std::all_of(segments_.begin(), segments_.end(), [](SegmentState state) {
-        return state == SegmentState::Destroyed;
-    });
+    for (const auto& segment : segments_) {
+        if (segment->getState() != SegmentState::Destroyed) {
+            return false;
+        }
+    }
+    return true;
 }

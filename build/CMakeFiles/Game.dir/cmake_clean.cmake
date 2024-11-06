@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Game.dir/src/entities/field/field.cpp.o.d"
   "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o"
   "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o.d"
+  "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o"
+  "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o.d"
   "CMakeFiles/Game.dir/src/main.cpp.o"
   "CMakeFiles/Game.dir/src/main.cpp.o.d"
   "CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o"

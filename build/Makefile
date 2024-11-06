@@ -177,6 +177,30 @@ src/entities/ship/ship.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/entities/ship/ship.cpp.s
 .PHONY : src/entities/ship/ship.cpp.s
 
+src/entities/ship_segment/ship_segment.o: src/entities/ship_segment/ship_segment.cpp.o
+.PHONY : src/entities/ship_segment/ship_segment.o
+
+# target to build an object file
+src/entities/ship_segment/ship_segment.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o
+.PHONY : src/entities/ship_segment/ship_segment.cpp.o
+
+src/entities/ship_segment/ship_segment.i: src/entities/ship_segment/ship_segment.cpp.i
+.PHONY : src/entities/ship_segment/ship_segment.i
+
+# target to preprocess a source file
+src/entities/ship_segment/ship_segment.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.i
+.PHONY : src/entities/ship_segment/ship_segment.cpp.i
+
+src/entities/ship_segment/ship_segment.s: src/entities/ship_segment/ship_segment.cpp.s
+.PHONY : src/entities/ship_segment/ship_segment.s
+
+# target to generate assembly for a file
+src/entities/ship_segment/ship_segment.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.s
+.PHONY : src/entities/ship_segment/ship_segment.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -240,6 +264,9 @@ help:
 	@echo "... src/entities/ship/ship.o"
 	@echo "... src/entities/ship/ship.i"
 	@echo "... src/entities/ship/ship.s"
+	@echo "... src/entities/ship_segment/ship_segment.o"
+	@echo "... src/entities/ship_segment/ship_segment.i"
+	@echo "... src/entities/ship_segment/ship_segment.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
