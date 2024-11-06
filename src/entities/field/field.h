@@ -23,6 +23,10 @@ enum class CellState {
 class Field {
 public: 
     Field(int width, int height);
+    Field(const Field& other);
+    Field(Field&& other) noexcept;
+    Field& operator=(const Field& other);
+    Field& operator=(Field&& other) noexcept;
 
     void placeShip(Ship& ship, int x, int y, Orientation orientation);
     void attackCell(int x, int y);
@@ -38,6 +42,7 @@ private:
 
     bool checkHorizontalPlacement(int x, int y, ShipSize shipSize);
     bool checkVerticalPlacement(int x, int y, ShipSize shipSize);
+    void markAdjacentCells(int x, int y, int length, Orientation orientation);
 
     int width_;
     int height_;

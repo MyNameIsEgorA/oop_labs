@@ -20,7 +20,7 @@ int ShipManager::getShipCount() const {
 void ShipManager::printShips() const {
     int destroyedShips = 0;
     for (int i = 0; i < this->ships_.size(); i++) {
-        std::cout << "Корабль " << i << ":   ";
+        std::cout << "Корабль " << i << ":              ";
         ships_[i].printShipInfo();
         if (ships_[i].isDestroyed()) {
             destroyedShips++;

@@ -1,5 +1,4 @@
 #include "field.h"
-#include <ncurses.h>
 
 
 Field::Field(int width, int height) : width_(width), height_(height) {
@@ -7,6 +6,36 @@ Field::Field(int width, int height) : width_(width), height_(height) {
         throw std::invalid_argument("Invalid field dimensions");
     }
     grid_.resize(height, std::vector<Cell>(width, {std::nullopt, CellState::Invisible}));
+}
+
+Field::Field(const Field& other)
+    : width_(other.width_), height_(other.height_), grid_(other.grid_) {
+}
+
+Field::Field(Field&& other) noexcept
+    : width_(other.width_), height_(other.height_), grid_(std::move(other.grid_)) {
+}
+
+Field& Field::operator=(const Field& other) {
+    if (this != &other) {
+        grid_.clear();
+
+        width_ = other.width_;
+        height_ = other.height_;
+        grid_ = other.grid_;
+    }
+    return *this;
+}
+
+Field& Field::operator=(Field&& other) noexcept {
+    if (this != &other) {
+        grid_.clear();
+
+        width_ = other.width_;
+        height_ = other.height_;
+        grid_ = std::move(other.grid_);
+    }
+    return *this;
 }
 
 void Field::placeShip(Ship& ship, int x, int y, Orientation orientation) {
@@ -37,7 +66,15 @@ bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) {
         if (grid_[y][x + i].shipSegment.has_value()) {
             return false;
         }
+        
+        if (y > 0 && grid_[y - 1][x + i].shipSegment.has_value()) return false;
+        if (y < height_ - 1 && grid_[y + 1][x + i].shipSegment.has_value()) return false;
     }
+
+    if (y > 0 && x > 0 && grid_[y - 1][x - 1].shipSegment.has_value()) return false;
+    if (y > 0 && x + length < width_ && grid_[y - 1][x + length].shipSegment.has_value()) return false;
+    if (y < height_ - 1 && x > 0 && grid_[y + 1][x - 1].shipSegment.has_value()) return false;
+    if (y < height_ - 1 && x + length < width_ && grid_[y + 1][x + length].shipSegment.has_value()) return false;
     return true;
 }
 
@@ -50,7 +87,15 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) {
         if (grid_[y + i][x].shipSegment.has_value()) {
             return false;
         }
+
+        if (x > 0 && grid_[y + i][x - 1].shipSegment.has_value()) return false;
+        if (x < width_ - 1 && grid_[y + i][x + 1].shipSegment.has_value()) return false;
     }
+    
+    if (x > 0 && y > 0 && grid_[y - 1][x - 1].shipSegment.has_value()) return false;
+    if (x > 0 && y + length < height_ && grid_[y + length][x - 1].shipSegment.has_value()) return false;
+    if (x < width_ - 1 && y > 0 && grid_[y - 1][x + 1].shipSegment.has_value()) return false;
+    if (x < width_ - 1 && y + length < height_ && grid_[y + length][x + 1].shipSegment.has_value()) return false;
     return true;
 }
 
@@ -58,10 +103,8 @@ void Field::attackCell(int x, int y) {
     if (grid_[y][x].shipSegment.has_value()) {
         grid_[y][x].shipSegment->get().hitSegment();
         makePointVisible(x, y);
-        std::cout << "Hit!" << std::endl;
     } else {
         makePointVisible(x, y);
-        std::cout << "Missed!" << std::endl;
     }
 }
 

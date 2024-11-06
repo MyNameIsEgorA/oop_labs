@@ -190,6 +190,4 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o: \
  /home/egor/oop_labs/src/entities/field/../ship/../ship_segment/ship_segment.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/ship_manager.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/../../entities/ship/ship.h \
- /home/egor/oop_labs/src/entities/field/../ship_segment/ship_segment.h \
- /usr/include/curses.h /usr/include/ncurses_dll.h /usr/include/unctrl.h \
- /usr/include/curses.h
+ /home/egor/oop_labs/src/entities/field/../ship_segment/ship_segment.h
