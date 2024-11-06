@@ -11,7 +11,7 @@ class ShipSegment {
 public:
     ShipSegment();
     SegmentState getState() const;
-    void hitSegment();
+    bool hitSegment();
 private:
     SegmentState state_;
 };

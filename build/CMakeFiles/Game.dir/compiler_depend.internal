@@ -8,6 +8,8 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -461,6 +463,8 @@ CMakeFiles/Game.dir/src/main.cpp.o
  /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
@@ -577,6 +581,7 @@ CMakeFiles/Game.dir/src/main.cpp.o
  /usr/include/c++/13/iosfwd
  /usr/include/c++/13/iostream
  /usr/include/c++/13/istream
+ /usr/include/c++/13/limits
  /usr/include/c++/13/memory
  /usr/include/c++/13/new
  /usr/include/c++/13/optional

@@ -10,6 +10,8 @@ set(SOURCES
     src/entities/ship/ship.cpp
     src/managers/ship_manager/ship_manager.cpp
     src/entities/field/field.cpp
+    src/base_exception.h
+    src/entities/field/exceptions.h
     src/main.cpp
 )
 

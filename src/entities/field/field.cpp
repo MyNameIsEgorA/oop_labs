@@ -39,7 +39,12 @@ Field& Field::operator=(Field&& other) noexcept {
 }
 
 void Field::placeShip(Ship& ship, int x, int y, Orientation orientation) {
+    if (x < 0 || y < 0 || x >= this->width_ || y >= this->height_) {
+        throw ShipPlacementOutOfRange();
+    }
+
     int length = static_cast<int>(ship.getLength());
+    
     if (orientation == Orientation::Horizontal) {
         if (!checkHorizontalPlacement(x, y, ship.getLength())) {
             throw std::invalid_argument("Ship placement out of bounds or overlapping another ship");
@@ -47,6 +52,7 @@ void Field::placeShip(Ship& ship, int x, int y, Orientation orientation) {
         for (int i = 0; i < length; ++i) {
             grid_[y][x + i].shipSegment = std::ref(*ship.getSegments()[i]);
         }
+
     } else {
         if (!checkVerticalPlacement(x, y, ship.getLength())) {
             throw std::invalid_argument("Ship placement out of bounds or overlapping another ship");
@@ -99,12 +105,19 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) {
     return true;
 }
 
-void Field::attackCell(int x, int y) {
+bool Field::attackCell(int x, int y) {
+
+    if (x < 0 || y < 0 || x >= width_ || y >= height_) {
+        throw AttackOutOfRangeException();
+    }
+
     if (grid_[y][x].shipSegment.has_value()) {
-        grid_[y][x].shipSegment->get().hitSegment();
+        bool wasDestroyed = grid_[y][x].shipSegment->get().hitSegment();
         makePointVisible(x, y);
+        return wasDestroyed;
     } else {
         makePointVisible(x, y);
+        return false;
     }
 }
 

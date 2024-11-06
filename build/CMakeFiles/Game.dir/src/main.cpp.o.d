@@ -191,4 +191,7 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/bits/uniform_int_dist.h \
  /home/egor/oop_labs/src/entities/field/../ship/ship.h \
  /home/egor/oop_labs/src/entities/field/../../managers/ship_manager/ship_manager.h \
- /home/egor/oop_labs/src/entities/field/../ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/entities/field/../ship_segment/ship_segment.h \
+ /home/egor/oop_labs/src/entities/field/./exceptions.h \
+ /home/egor/oop_labs/src/entities/field/./../../base_exception.h \
+ /usr/include/c++/13/limits

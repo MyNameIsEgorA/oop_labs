@@ -7,6 +7,8 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o: /home/egor/oop_labs/src/enti
   /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
+  /home/egor/oop_labs/src/base_exception.h \
+  /home/egor/oop_labs/src/entities/field/exceptions.h \
   /home/egor/oop_labs/src/entities/field/field.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -457,6 +459,8 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
   /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
+  /home/egor/oop_labs/src/base_exception.h \
+  /home/egor/oop_labs/src/entities/field/exceptions.h \
   /home/egor/oop_labs/src/entities/field/field.h \
   /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
@@ -573,6 +577,7 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
@@ -905,6 +910,8 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 
+/usr/include/c++/13/limits:
+
 /home/egor/oop_labs/src/main.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
@@ -1031,15 +1038,11 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/c++/13/tuple:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+/usr/include/features-time64.h:
 
-/usr/include/c++/13/system_error:
+/usr/include/c++/13/string_view:
 
-/usr/include/c++/13/bits/range_access.h:
-
-/usr/include/c++/13/debug/debug.h:
-
-/usr/include/c++/13/stdexcept:
+/usr/include/c++/13/string:
 
 /usr/include/c++/13/bits/node_handle.h:
 
@@ -1075,10 +1078,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/asm-generic/errno-base.h:
 
-/usr/include/features-time64.h:
-
-/usr/include/c++/13/string_view:
-
 /usr/include/errno.h:
 
 /usr/include/c++/13/bits/functional_hash.h:
@@ -1103,33 +1102,33 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/c++/13/bits/hashtable_policy.h:
 
+/usr/include/c++/13/bits/exception_defines.h:
+
+/usr/include/c++/13/bits/localefwd.h:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
+
+/usr/include/c++/13/backward/auto_ptr.h:
+
 /usr/include/c++/13/cwctype:
 
 /usr/include/c++/13/bits/predefined_ops.h:
 
 /usr/include/c++/13/iosfwd:
 
-/usr/include/c++/13/backward/auto_ptr.h:
+/usr/include/c++/13/cwchar:
 
 /usr/include/c++/13/bits/enable_special_members.h:
 
-/usr/include/c++/13/bits/exception_defines.h:
+/home/egor/oop_labs/src/entities/field/exceptions.h:
 
-/usr/include/c++/13/bits/localefwd.h:
+/usr/include/c++/13/bits/istream.tcc:
 
-/usr/include/c++/13/cwchar:
+/usr/include/c++/13/bits/exception_ptr.h:
 
-/usr/include/alloca.h:
+/usr/include/c++/13/optional:
 
-/usr/include/c++/13/bit:
-
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/c++/13/bits/alloc_traits.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
+/home/egor/oop_labs/src/base_exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -1137,11 +1136,17 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/c++/13/bits/shared_ptr_base.h:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+/usr/include/alloca.h:
 
-/usr/include/locale.h:
+/usr/include/c++/13/bit:
 
-/usr/include/c++/13/ext/aligned_buffer.h:
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/endian.h:
+
+/usr/include/c++/13/bits/streambuf.tcc:
+
+/home/egor/oop_labs/src/entities/field/field.h:
 
 /home/egor/oop_labs/src/entities/ship/ship.h:
 
@@ -1152,6 +1157,18 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/c++/13/bits/concept_check.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/bits/algorithmfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/locale.h:
+
+/usr/include/c++/13/ext/aligned_buffer.h:
 
 /usr/include/c++/13/backward/binders.h:
 
@@ -1177,7 +1194,15 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/c++/13/bits/ptr_traits.h:
 
-/usr/include/c++/13/bits/cxxabi_forced.h:
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/c++/13/system_error:
+
+/usr/include/c++/13/bits/range_access.h:
+
+/usr/include/c++/13/debug/debug.h:
+
+/usr/include/c++/13/stdexcept:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
@@ -1241,8 +1266,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /usr/include/c++/13/bits/stl_iterator.h:
 
-/usr/include/c++/13/string:
-
 /usr/include/asm-generic/errno.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
@@ -1274,18 +1297,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/c++/13/memory:
-
-/usr/include/endian.h:
-
-/home/egor/oop_labs/src/entities/field/field.h:
-
-/usr/include/c++/13/bits/streambuf.tcc:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/c++/13/optional:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 

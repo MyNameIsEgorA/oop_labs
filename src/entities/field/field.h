@@ -9,6 +9,7 @@
 #include "../ship/ship.h"
 #include "../../managers/ship_manager/ship_manager.h"
 #include "../ship_segment/ship_segment.h"
+#include "./exceptions.h"
 
 enum class Orientation {
     Horizontal, 
@@ -29,7 +30,7 @@ public:
     Field& operator=(Field&& other) noexcept;
 
     void placeShip(Ship& ship, int x, int y, Orientation orientation);
-    void attackCell(int x, int y);
+    bool attackCell(int x, int y);
     void makePointVisible(int x, int y);
     void printField() const;
 
