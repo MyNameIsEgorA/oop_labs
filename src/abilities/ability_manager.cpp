@@ -2,27 +2,31 @@
 #include <algorithm>
 #include <random>
 
+#include "exceptions.h"
+
 AbilityManager::AbilityManager() {
     abilities_.push_back(std::make_unique<DoubleDamage>());
     abilities_.push_back(std::make_unique<Scanner>());
     abilities_.push_back(std::make_unique<RandomAttack>());
 
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    const unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine rng(seed);
 
     std::shuffle(abilities_.begin(), abilities_.end(), rng);
 }
 
 std::unique_ptr<Ability> AbilityManager::getAbility() {
-    if (!abilities_.empty()) {
-        std::unique_ptr<Ability> ability = std::move(abilities_.front());
-        abilities_.erase(abilities_.begin());
-        return ability;
+    if (abilities_.empty()) {
+        throw EmptyAbilityException();
     }
-    return nullptr;
+    std::unique_ptr<Ability> ability = std::move(abilities_.front());
+    abilities_.erase(abilities_.begin());
+    return ability;
 }
 
 void AbilityManager::addAbility() {
+
+    std::cout << "Добавляем абилку\n";
 
     using AbilityCreator = std::function<std::unique_ptr<Ability>()>;
 
@@ -31,7 +35,6 @@ void AbilityManager::addAbility() {
         []() { return std::make_unique<Scanner>(); },
         []() { return std::make_unique<RandomAttack>(); }
     };
-
 
     std::random_device rd;
     std::mt19937 gen(rd());

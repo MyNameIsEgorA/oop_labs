@@ -15,8 +15,11 @@ public:
     [[nodiscard]] int getShipCount() const;
     void printShips() const;
 
+    bool hasDestroyedShipsChanged() const;
+
 private:
     std::vector<Ship> ships_;
+    mutable int lastDestroyedShipCount_;
 };
 
 #endif // SHIP_MANAGER_H

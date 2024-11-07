@@ -3,9 +3,12 @@
 
 CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o
  /home/egor/oop_labs/src/abilities/ability_manager.cpp
+ /home/egor/oop_labs/src/base_exception.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /home/egor/oop_labs/src/abilities/base_ability.h
  /home/egor/oop_labs/src/abilities/base_ability.h
@@ -13,6 +16,7 @@ CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o
  /home/egor/oop_labs/src/abilities/random_attack_ability.h
  /home/egor/oop_labs/src/abilities/scanner_ability.h
  /home/egor/oop_labs/src/abilities/ability_manager.h
+ /home/egor/oop_labs/src/abilities/exceptions.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -280,15 +284,13 @@ CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
-CMakeFiles/Game.dir/src/abilities/base_ability.cpp.o
- /home/egor/oop_labs/src/abilities/base_ability.cpp
- /usr/include/stdc-predef.h
-
 CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o
  /home/egor/oop_labs/src/abilities/double_damage_ability.cpp
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /home/egor/oop_labs/src/abilities/base_ability.h
  /home/egor/oop_labs/src/abilities/double_damage_ability.h
@@ -524,6 +526,8 @@ CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /home/egor/oop_labs/src/abilities/base_ability.h
  /home/egor/oop_labs/src/abilities/random_attack_ability.h
@@ -792,6 +796,8 @@ CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /home/egor/oop_labs/src/abilities/base_ability.h
  /home/egor/oop_labs/src/abilities/scanner_ability.h
@@ -1027,6 +1033,8 @@ CMakeFiles/Game.dir/src/entities/field/field.cpp.o
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/entities/field/exceptions.h
  /home/egor/oop_labs/src/entities/field/field.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -1483,7 +1491,8 @@ CMakeFiles/Game.dir/src/main.cpp.o
  /home/egor/oop_labs/src/abilities/random_attack_ability.h
  /home/egor/oop_labs/src/abilities/scanner_ability.h
  /home/egor/oop_labs/src/abilities/ability_manager.h
- /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h
+ /home/egor/oop_labs/src/base_exception.h
+ /home/egor/oop_labs/src/abilities/exceptions.h
  /home/egor/oop_labs/src/entities/ship/ship.h
  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h
  /home/egor/oop_labs/src/base_exception.h

@@ -1,6 +1,7 @@
 #include "ship_manager.h"
 
-ShipManager::ShipManager(const std::vector<ShipSize>& shipSizes) {
+ShipManager::ShipManager(const std::vector<ShipSize>& shipSizes)
+    : lastDestroyedShipCount_(0) {
     for (const auto& size : shipSizes) {
         ships_.emplace_back(size);
     }
@@ -32,3 +33,23 @@ void ShipManager::printShips() const {
     std::cout << "Кораблей не уничтожено: " << this->getShipCount() - destroyedShips << "\n";
 }
 
+bool ShipManager::hasDestroyedShipsChanged() const {
+    int currentDestroyedShipCount = 0;
+    for (const auto& ship : ships_) {
+        if (ship.isDestroyed()) {
+            currentDestroyedShipCount++;
+        }
+    }
+
+    if (this->lastDestroyedShipCount_ == 0 && currentDestroyedShipCount == this->lastDestroyedShipCount_) {
+        return false;
+    }
+
+    if (this->lastDestroyedShipCount_ == currentDestroyedShipCount) {
+        return false;
+    }
+
+    this->lastDestroyedShipCount_ = currentDestroyedShipCount;
+
+    return true;
+}

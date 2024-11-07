@@ -1,12 +1,12 @@
 # ninja log v6
 1	20	1730999323035611689	CMakeFiles/Game.dir/src/abilities/base_ability.cpp.o	c412fabb8a4a0dc2
 2	29	1730999323036611764	CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o	324c0c8fbdbc8785
-2	447	1730999323036611764	CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o	75930a72a0785373
 2	478	1730999323036611764	CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o	883e0b0eae2c856a
-1	520	1730999323035611689	CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o	6f4460822f30de68
+2	447	1730999323036611764	CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o	75930a72a0785373
 2	659	1730999323036611764	CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o	6aaaca71221bb6de
-2	712	1730999323036611764	CMakeFiles/Game.dir/src/entities/field/field.cpp.o	72632ff64133e8f5
+1	520	1730999323035611689	CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o	6f4460822f30de68
 2	757	1730999323036611764	CMakeFiles/Game.dir/src/main.cpp.o	708390e963e2cf66
+2	712	1730999323036611764	CMakeFiles/Game.dir/src/entities/field/field.cpp.o	72632ff64133e8f5
 2	793	1730999323036611764	CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o	5e474f1521d4ba92
-1	916	1730999323035611689	CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o	cfc7afbcae2bd2b8
 916	970	1730999323950679852	Game	b334ffa65cc10413
+1	916	1730999323035611689	CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o	cfc7afbcae2bd2b8

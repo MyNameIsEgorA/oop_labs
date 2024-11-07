@@ -1,6 +1,5 @@
 #include "field.h"
 
-
 Field::Field(int width, int height) : width_(width), height_(height) {
     if (width <= 0 || height <= 0) {
         throw std::invalid_argument("Invalid field dimensions");
@@ -8,15 +7,15 @@ Field::Field(int width, int height) : width_(width), height_(height) {
     grid_.resize(height, std::vector<Cell>(width, {std::nullopt, CellState::Invisible}));
 }
 
-Field::Field(const Field& other)
+Field::Field(const Field &other)
     : width_(other.width_), height_(other.height_), grid_(other.grid_) {
 }
 
-Field::Field(Field&& other) noexcept
+Field::Field(Field &&other) noexcept
     : width_(other.width_), height_(other.height_), grid_(std::move(other.grid_)) {
 }
 
-Field& Field::operator=(const Field& other) {
+Field &Field::operator=(const Field &other) {
     if (this != &other) {
         grid_.clear();
 
@@ -27,7 +26,7 @@ Field& Field::operator=(const Field& other) {
     return *this;
 }
 
-Field& Field::operator=(Field&& other) noexcept {
+Field &Field::operator=(Field &&other) noexcept {
     if (this != &other) {
         grid_.clear();
 
@@ -38,24 +37,23 @@ Field& Field::operator=(Field&& other) noexcept {
     return *this;
 }
 
-void Field::placeShip(Ship& ship, int x, int y, Orientation orientation) {
+void Field::placeShip(Ship &ship, int x, int y, Orientation orientation) {
     if (x < 0 || y < 0 || x >= this->width_ || y >= this->height_) {
-        throw ShipPlacementOutOfRange();
+        throw ShipPlacementOutOfRangeException();
     }
 
     int length = static_cast<int>(ship.getLength());
-    
+
     if (orientation == Orientation::Horizontal) {
         if (!checkHorizontalPlacement(x, y, ship.getLength())) {
-            throw std::invalid_argument("Ship placement out of bounds or overlapping another ship");
+            throw ShipIncorrectPlacementException();
         }
         for (int i = 0; i < length; ++i) {
             grid_[y][x + i].shipSegment = std::ref(*ship.getSegments()[i]);
         }
-
     } else {
         if (!checkVerticalPlacement(x, y, ship.getLength())) {
-            throw std::invalid_argument("Ship placement out of bounds or overlapping another ship");
+            throw ShipIncorrectPlacementException();
         }
         for (int i = 0; i < length; ++i) {
             grid_[y + i][x].shipSegment = std::ref(*ship.getSegments()[i]);
@@ -71,7 +69,7 @@ int Field::getWidth() const {
     return this->width_;
 }
 
-bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) {
+bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) const {
     int length = static_cast<int>(shipSize);
     if (x + length > width_) {
         return false;
@@ -80,7 +78,7 @@ bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) {
         if (grid_[y][x + i].shipSegment.has_value()) {
             return false;
         }
-        
+
         if (y > 0 && grid_[y - 1][x + i].shipSegment.has_value()) return false;
         if (y < height_ - 1 && grid_[y + 1][x + i].shipSegment.has_value()) return false;
     }
@@ -92,7 +90,7 @@ bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) {
     return true;
 }
 
-bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) {
+bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) const {
     int length = static_cast<int>(shipSize);
     if (y + length > height_) {
         return false;
@@ -105,7 +103,7 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) {
         if (x > 0 && grid_[y + i][x - 1].shipSegment.has_value()) return false;
         if (x < width_ - 1 && grid_[y + i][x + 1].shipSegment.has_value()) return false;
     }
-    
+
     if (x > 0 && y > 0 && grid_[y - 1][x - 1].shipSegment.has_value()) return false;
     if (x > 0 && y + length < height_ && grid_[y + length][x - 1].shipSegment.has_value()) return false;
     if (x < width_ - 1 && y > 0 && grid_[y - 1][x + 1].shipSegment.has_value()) return false;
@@ -114,7 +112,6 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) {
 }
 
 bool Field::attackCell(int x, int y) {
-
     if (x < 0 || y < 0 || x >= width_ || y >= height_) {
         throw AttackOutOfRangeException();
     }
@@ -134,8 +131,8 @@ void Field::makePointVisible(int x, int y) {
 }
 
 void Field::printField() const {
-    for (const auto& row : grid_) {
-        for (const auto& cell : row) {
+    for (const auto &row: grid_) {
+        for (const auto &cell: row) {
             if (cell.cellState == CellState::Invisible) {
                 std::cout << "\033[37m\u25A1\033[0m" << " "; // белый квадрат
             } else {

@@ -9,4 +9,4 @@ public:
     void printAbility() const override;
 };
 
-#endif // DOUBLE_DAMAGE_H
+#endif // DOUBLE_DAMAGE_ABILITY_H

@@ -8,7 +8,7 @@ class RandomAttack : public Ability {
 public:
     void apply(Field& field, int x, int y) const override;
     void printAbility() const override;
-    bool needsCoordinates() const override { return false; } // Переопределяем метод
+    [[nodiscard]] bool needsCoordinates() const override { return false; }
 };
 
-#endif // RANDOM_ATTACK_H
+#endif // RANDOM_ATTACK_ABILITY_H

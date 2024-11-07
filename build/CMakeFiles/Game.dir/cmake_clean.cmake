@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o"
   "CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o.d"
-  "CMakeFiles/Game.dir/src/abilities/base_ability.cpp.o"
-  "CMakeFiles/Game.dir/src/abilities/base_ability.cpp.o.d"
   "CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o"
   "CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o.d"
   "CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o"

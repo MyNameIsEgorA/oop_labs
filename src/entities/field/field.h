@@ -40,8 +40,8 @@ private:
         CellState cellState;
     };
 
-    bool checkHorizontalPlacement(int x, int y, ShipSize shipSize);
-    bool checkVerticalPlacement(int x, int y, ShipSize shipSize);
+    [[nodiscard]] bool checkHorizontalPlacement(int x, int y, ShipSize shipSize) const;
+    [[nodiscard]] bool checkVerticalPlacement(int x, int y, ShipSize shipSize) const;
 
     int width_;
     int height_;

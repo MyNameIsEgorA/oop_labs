@@ -9,4 +9,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")
 
 # Добавить исполняемый файл
-add_executable(Game ${SOURCES})
+add_executable(Game ${SOURCES}
+        src/abilities/exceptions.h)

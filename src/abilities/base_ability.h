@@ -9,7 +9,7 @@ public:
     virtual ~Ability() = default;
     virtual void apply(Field& field, int x, int y) const = 0;
     virtual void printAbility() const = 0;
-    virtual bool needsCoordinates() const { return true; } // По умолчанию возвращает false
+    [[nodiscard]] virtual bool needsCoordinates() const { return true; }
 };
 
 #endif

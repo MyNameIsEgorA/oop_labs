@@ -9,4 +9,4 @@ public:
     void printAbility() const override;
 };
 
-#endif // SCANNER_H
+#endif // SCANNER_ABILITY_H

@@ -3,14 +3,19 @@
 
 #include "../../base_exception.h"
 
-class AttackOutOfRangeException : public BaseException {
+class AttackOutOfRangeException final : public BaseException {
 public:
     explicit AttackOutOfRangeException(const std::string& message = "Атака за пределы поля") : BaseException(message) {}
 };
 
-class ShipPlacementOutOfRange : public BaseException {
+class ShipPlacementOutOfRangeException final : public BaseException {
 public:
-    explicit ShipPlacementOutOfRange(const std::string& message = "Нельзя ставить корабль вне поля") : BaseException(message) {}
+    explicit ShipPlacementOutOfRangeException(const std::string& message = "Нельзя ставить корабль вне поля") : BaseException(message) {}
+};
+
+class ShipIncorrectPlacementException final : public BaseException {
+public:
+    explicit ShipIncorrectPlacementException(const std::string& message = "Корабль поставлен слишком близко к другому") : BaseException(message) {}
 };
 
 #endif
