@@ -153,6 +153,30 @@ src/abilities/ability_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.s
 .PHONY : src/abilities/ability_manager.cpp.s
 
+src/abilities/base_ability.o: src/abilities/base_ability.cpp.o
+.PHONY : src/abilities/base_ability.o
+
+# target to build an object file
+src/abilities/base_ability.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/base_ability.cpp.o
+.PHONY : src/abilities/base_ability.cpp.o
+
+src/abilities/base_ability.i: src/abilities/base_ability.cpp.i
+.PHONY : src/abilities/base_ability.i
+
+# target to preprocess a source file
+src/abilities/base_ability.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/base_ability.cpp.i
+.PHONY : src/abilities/base_ability.cpp.i
+
+src/abilities/base_ability.s: src/abilities/base_ability.cpp.s
+.PHONY : src/abilities/base_ability.s
+
+# target to generate assembly for a file
+src/abilities/base_ability.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/base_ability.cpp.s
+.PHONY : src/abilities/base_ability.cpp.s
+
 src/abilities/double_damage_ability.o: src/abilities/double_damage_ability.cpp.o
 .PHONY : src/abilities/double_damage_ability.o
 
@@ -357,6 +381,9 @@ help:
 	@echo "... src/abilities/ability_manager.o"
 	@echo "... src/abilities/ability_manager.i"
 	@echo "... src/abilities/ability_manager.s"
+	@echo "... src/abilities/base_ability.o"
+	@echo "... src/abilities/base_ability.i"
+	@echo "... src/abilities/base_ability.s"
 	@echo "... src/abilities/double_damage_ability.o"
 	@echo "... src/abilities/double_damage_ability.i"
 	@echo "... src/abilities/double_damage_ability.s"

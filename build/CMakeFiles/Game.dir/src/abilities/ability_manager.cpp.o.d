@@ -192,11 +192,9 @@ CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o: \
  /usr/include/c++/13/bits/uniform_int_dist.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/../ship/ship.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/../ship/../ship_segment/ship_segment.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../../managers/ship_manager/ship_manager.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../../managers/ship_manager/../../entities/ship/ship.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../ship_segment/ship_segment.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/./exceptions.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/./../../base_exception.h \
+ /home/egor/oop_labs/src/abilities/././../entities/field/../ship_segment/ship_segment.h \
  /home/egor/oop_labs/src/abilities/././double_damage_ability.h \
  /home/egor/oop_labs/src/abilities/./././base_ability.h \
  /home/egor/oop_labs/src/abilities/././scanner_ability.h \

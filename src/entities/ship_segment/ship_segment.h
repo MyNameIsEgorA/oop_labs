@@ -10,7 +10,7 @@ enum class SegmentState {
 class ShipSegment {
 public:
     ShipSegment();
-    SegmentState getState() const;
+    [[nodiscard]] SegmentState getState() const;
     bool hitSegment();
 private:
     SegmentState state_;

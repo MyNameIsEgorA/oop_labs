@@ -190,8 +190,6 @@ CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o: \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/../ship/../ship_segment/ship_segment.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../../managers/ship_manager/ship_manager.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../../managers/ship_manager/../../entities/ship/ship.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../ship_segment/ship_segment.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/./exceptions.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/./../../base_exception.h
+ /home/egor/oop_labs/src/abilities/././../entities/field/./../../base_exception.h \
+ /home/egor/oop_labs/src/abilities/././../entities/field/../ship_segment/ship_segment.h

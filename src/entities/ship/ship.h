@@ -19,10 +19,10 @@ enum class ShipSize {
 class Ship {
 
 public:
-    Ship(ShipSize length);
-    ShipSize getLength() const;
-    bool isDestroyed() const;
-    std::vector<std::shared_ptr<ShipSegment>> getSegments() const;
+    explicit Ship(ShipSize length);
+    [[nodiscard]] ShipSize getLength() const;
+    [[nodiscard]] bool isDestroyed() const;
+    [[nodiscard]] std::vector<std::shared_ptr<ShipSegment>> getSegments() const;
     void printShipInfo() const;
 private:
     ShipSize length_;

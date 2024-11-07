@@ -47,6 +47,8 @@ int main() {
             }
 
         } else if (command == "ability") {
+            
+            
             std::cin >> x >> y;
 
             if (std::cin.fail()) {

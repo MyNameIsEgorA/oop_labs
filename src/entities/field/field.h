@@ -1,15 +1,12 @@
 #pragma once
 
 #include <vector>
-#include <stdexcept>
-#include <iostream>
 #include <optional>
 #include <functional>
 
 #include "../ship/ship.h"
-#include "../../managers/ship_manager/ship_manager.h"
-#include "../ship_segment/ship_segment.h"
 #include "./exceptions.h"
+#include "../ship_segment/ship_segment.h"
 
 enum class Orientation {
     Horizontal, 
@@ -33,8 +30,8 @@ public:
     bool attackCell(int x, int y);
     void makePointVisible(int x, int y);
     void printField() const;
-    int getWidth() const;
-    int getHeight() const;
+    [[nodiscard]] int getWidth() const;
+    [[nodiscard]] int getHeight() const;
 
 private:
 
@@ -45,7 +42,6 @@ private:
 
     bool checkHorizontalPlacement(int x, int y, ShipSize shipSize);
     bool checkVerticalPlacement(int x, int y, ShipSize shipSize);
-    void markAdjacentCells(int x, int y, int length, Orientation orientation);
 
     int width_;
     int height_;
