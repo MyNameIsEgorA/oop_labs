@@ -59,7 +59,7 @@ int main() {
             }
 
             try {
-                abilityManager.applyAbility(field, x, y);
+                std::shared_ptr<Ability> ability = abilityManager.getAbility();
                 field.printField();
             } catch(const std::exception& e) {
                 std::cerr << e.what() << '\n';

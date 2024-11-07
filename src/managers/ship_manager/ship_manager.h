@@ -9,10 +9,10 @@
 
 class ShipManager {
 public:
-    ShipManager(const std::vector<ShipSize>& shipSizes);
+    explicit ShipManager(const std::vector<ShipSize>& shipSizes);
 
     Ship& getShip(int index);
-    int getShipCount() const;
+    [[nodiscard]] int getShipCount() const;
     void printShips() const;
 
 private:

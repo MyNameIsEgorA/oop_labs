@@ -13,11 +13,13 @@ AbilityManager::AbilityManager() {
     std::shuffle(abilities_.begin(), abilities_.end(), rng);
 }
 
-void AbilityManager::applyAbility(Field& field, int x, int y) {
+std::unique_ptr<Ability> AbilityManager::getAbility() {
     if (!abilities_.empty()) {
-        abilities_.front()->apply(field, x, y);
+        std::unique_ptr<Ability> ability = std::move(abilities_.front());
         abilities_.erase(abilities_.begin());
+        return ability;
     }
+    return nullptr;
 }
 
 void AbilityManager::addAbility() {
@@ -40,7 +42,7 @@ void AbilityManager::addAbility() {
 }
 
 void AbilityManager::printAbilities() const {
-    if (this->abilities_.size() == 0) {
+    if (this->abilities_.empty()) {
         std::cout << "Список способностей пуст\n";
         return;
     }

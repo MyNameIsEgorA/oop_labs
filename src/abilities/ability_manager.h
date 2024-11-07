@@ -14,7 +14,7 @@
 class AbilityManager {
 public:
     AbilityManager();
-    void applyAbility(Field& field, int x, int y);
+    std::unique_ptr<Ability> getAbility();
     void addAbility();
     void printAbilities() const;
 
