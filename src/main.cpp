@@ -43,10 +43,7 @@ int main() {
             }
 
             try {
-                bool hit = field.attackCell(x, y);
-                if (hit) {
-                    std::cout << "Сегмент уничтожен" << "\n";
-                }
+                field.attackCell(x, y);
                 field.printField();
             } catch(const AttackOutOfRangeException& e) {
                 std::cerr << e.what() << '\n';

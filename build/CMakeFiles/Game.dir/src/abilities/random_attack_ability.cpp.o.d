@@ -220,4 +220,6 @@ CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o: \
  /home/egor/oop_labs/src/abilities/././../entities/field/../ship/../ship_segment/ship_segment.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/./exceptions.h \
  /home/egor/oop_labs/src/abilities/././../entities/field/./../../base_exception.h \
- /home/egor/oop_labs/src/abilities/././../entities/field/../ship_segment/ship_segment.h
+ /home/egor/oop_labs/src/abilities/././../entities/field/../ship_segment/ship_segment.h \
+ /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h

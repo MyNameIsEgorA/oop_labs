@@ -27,9 +27,12 @@ public:
     Field& operator=(Field&& other) noexcept;
 
     void placeShip(Ship& ship, int x, int y, Orientation orientation);
-    bool attackCell(int x, int y);
+    void attackCell(int x, int y);
+    void hitCell(int x, int y) const;
+
     void makePointVisible(int x, int y);
     void printField() const;
+    [[nodiscard]] std::vector<std::pair<int, int>> getNonEmptyCells() const;
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;
 

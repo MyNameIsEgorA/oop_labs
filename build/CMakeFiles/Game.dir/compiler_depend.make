@@ -531,6 +531,7 @@ CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o: /home/egor/oop_la
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
@@ -652,6 +653,7 @@ CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o: /home/egor/oop_la
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \

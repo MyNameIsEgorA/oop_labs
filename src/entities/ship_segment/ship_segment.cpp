@@ -6,13 +6,12 @@ SegmentState ShipSegment::getState() const {
     return this->state_;
 }
 
-bool ShipSegment::hitSegment() {
+void ShipSegment::hitSegment() {
     if (this->state_ == SegmentState::Damaged) {
         this->state_ = SegmentState::Destroyed;
-        return true;
+        return;
     }
     if (this->state_ == SegmentState::Intact) {
         this->state_ = SegmentState::Damaged;
     }
-    return false;
 }

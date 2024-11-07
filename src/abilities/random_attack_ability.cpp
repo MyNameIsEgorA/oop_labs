@@ -1,17 +1,26 @@
 #include "./random_attack_ability.h"
+#include <algorithm> // для std::shuffle
 
 void RandomAttack::apply(Field& field, int x, int y) const {
+    auto shipCells = field.getNonEmptyCells();
+
+    if (shipCells.empty()) {
+        return;
+    }
+
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> disX(0, field.getWidth() - 1);
-    std::uniform_int_distribution<> disY(0, field.getHeight() - 1);
+    std::shuffle(shipCells.begin(), shipCells.end(), gen);
 
-    int randomX = disX(gen);
-    int randomY = disY(gen);
+    auto [randomX, randomY] = shipCells.front();
 
-    field.attackCell(randomX, randomY);
+    try {
+        field.hitCell(randomX, randomY);
+    } catch (AttackOutOfRangeException& e) {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 void RandomAttack::printAbility() const {
-    std::cout << "Случайная атака\n";
+    std::cout << "Случайная атака по кораблю\n";
 }

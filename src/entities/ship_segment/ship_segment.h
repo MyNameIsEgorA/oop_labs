@@ -11,7 +11,7 @@ class ShipSegment {
 public:
     ShipSegment();
     [[nodiscard]] SegmentState getState() const;
-    bool hitSegment();
+    void hitSegment();
 private:
     SegmentState state_;
 };

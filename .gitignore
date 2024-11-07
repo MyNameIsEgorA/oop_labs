@@ -1,0 +1,6 @@
+/build
+./build
+build
+.trunk
+.vscode
+/cmake-build-debug

@@ -90,6 +90,20 @@ bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) const {
     return true;
 }
 
+std::vector<std::pair<int, int> > Field::getNonEmptyCells() const {
+    std::vector<std::pair<int, int>> shipCells;
+    for (int y = 0; y < height_; ++y) {
+        for (int x = 0; x < width_; ++x) {
+            auto point = grid_[y][x].shipSegment;
+            if (point.has_value() && point->get().getState() != SegmentState::Destroyed) {
+                shipCells.emplace_back(x, y);
+            }
+        }
+    }
+    return shipCells;
+}
+
+
 bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) const {
     int length = static_cast<int>(shipSize);
     if (y + length > height_) {
@@ -111,18 +125,24 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) const {
     return true;
 }
 
-bool Field::attackCell(int x, int y) {
+void Field::attackCell(int x, int y) {
     if (x < 0 || y < 0 || x >= width_ || y >= height_) {
         throw AttackOutOfRangeException();
     }
 
     if (grid_[y][x].shipSegment.has_value()) {
-        bool wasDestroyed = grid_[y][x].shipSegment->get().hitSegment();
-        makePointVisible(x, y);
-        return wasDestroyed;
-    } else {
-        makePointVisible(x, y);
-        return false;
+        grid_[y][x].shipSegment->get().hitSegment();
+    }
+    makePointVisible(x, y);
+}
+
+void Field::hitCell(int x, int y) const {
+    if (x < 0 || y < 0 || x >= width_ || y >= height_) {
+        throw AttackOutOfRangeException();
+    }
+
+    if (grid_[y][x].shipSegment.has_value()) {
+        grid_[y][x].shipSegment->get().hitSegment();
     }
 }
 
@@ -131,8 +151,16 @@ void Field::makePointVisible(int x, int y) {
 }
 
 void Field::printField() const {
-    for (const auto &row: grid_) {
-        for (const auto &cell: row) {
+    std::cout << "  ";
+    for (size_t col = 0; col < grid_[0].size(); ++col) {
+        std::cout << (col) << " ";
+    }
+    std::cout << std::endl;
+
+    for (size_t row = 0; row < grid_.size(); ++row) {
+        std::cout << row << " ";
+
+        for (const auto &cell: grid_[row]) {
             if (cell.cellState == CellState::Invisible) {
                 std::cout << "\033[37m\u25A1\033[0m" << " "; // белый квадрат
             } else {
@@ -140,13 +168,13 @@ void Field::printField() const {
                     switch (cell.shipSegment->get().getState()) {
                         case SegmentState::Destroyed:
                             std::cout << "\033[91m\u25A0\033[0m" << " "; // Красный квадрат
-                            break;
+                        break;
                         case SegmentState::Intact:
                             std::cout << "\033[92m\u25A0\033[0m" << " "; // Зеленый квадрат
-                            break;
+                        break;
                         case SegmentState::Damaged:
                             std::cout << "\033[93m\u25A0\033[0m" << " "; // Желтый квадрат
-                            break;
+                        break;
                         default:
                             break;
                     }
