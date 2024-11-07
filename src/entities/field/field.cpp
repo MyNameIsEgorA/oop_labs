@@ -63,6 +63,14 @@ void Field::placeShip(Ship& ship, int x, int y, Orientation orientation) {
     }
 }
 
+int Field::getHeight() const {
+    return this->height_;
+}
+
+int Field::getWidth() const {
+    return this->width_;
+}
+
 bool Field::checkHorizontalPlacement(int x, int y, ShipSize shipSize) {
     int length = static_cast<int>(shipSize);
     if (x + length > width_) {

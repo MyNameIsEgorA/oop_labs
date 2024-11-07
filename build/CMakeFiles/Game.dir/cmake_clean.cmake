@@ -1,4 +1,12 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o"
+  "CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o.d"
+  "CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o"
+  "CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o.d"
+  "CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o"
+  "CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o.d"
+  "CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o"
+  "CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o.d"
   "CMakeFiles/Game.dir/src/entities/field/field.cpp.o"
   "CMakeFiles/Game.dir/src/entities/field/field.cpp.o.d"
   "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o"

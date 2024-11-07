@@ -33,6 +33,8 @@ public:
     bool attackCell(int x, int y);
     void makePointVisible(int x, int y);
     void printField() const;
+    int getWidth() const;
+    int getHeight() const;
 
 private:
 

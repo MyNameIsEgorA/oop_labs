@@ -5,14 +5,8 @@ project(WorldOfShips CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(SOURCES
-    src/entities/ship_segment/ship_segment.cpp
-    src/entities/ship/ship.cpp
-    src/managers/ship_manager/ship_manager.cpp
-    src/entities/field/field.cpp
-    src/base_exception.h
-    src/entities/field/exceptions.h
-    src/main.cpp
-)
+# Найти все исходные файлы в директории src
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")
 
+# Добавить исполняемый файл
 add_executable(Game ${SOURCES})

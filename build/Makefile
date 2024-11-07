@@ -129,6 +129,102 @@ Game/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
 .PHONY : Game/fast
 
+src/abilities/ability_manager.o: src/abilities/ability_manager.cpp.o
+.PHONY : src/abilities/ability_manager.o
+
+# target to build an object file
+src/abilities/ability_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o
+.PHONY : src/abilities/ability_manager.cpp.o
+
+src/abilities/ability_manager.i: src/abilities/ability_manager.cpp.i
+.PHONY : src/abilities/ability_manager.i
+
+# target to preprocess a source file
+src/abilities/ability_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.i
+.PHONY : src/abilities/ability_manager.cpp.i
+
+src/abilities/ability_manager.s: src/abilities/ability_manager.cpp.s
+.PHONY : src/abilities/ability_manager.s
+
+# target to generate assembly for a file
+src/abilities/ability_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.s
+.PHONY : src/abilities/ability_manager.cpp.s
+
+src/abilities/double_damage_ability.o: src/abilities/double_damage_ability.cpp.o
+.PHONY : src/abilities/double_damage_ability.o
+
+# target to build an object file
+src/abilities/double_damage_ability.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o
+.PHONY : src/abilities/double_damage_ability.cpp.o
+
+src/abilities/double_damage_ability.i: src/abilities/double_damage_ability.cpp.i
+.PHONY : src/abilities/double_damage_ability.i
+
+# target to preprocess a source file
+src/abilities/double_damage_ability.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.i
+.PHONY : src/abilities/double_damage_ability.cpp.i
+
+src/abilities/double_damage_ability.s: src/abilities/double_damage_ability.cpp.s
+.PHONY : src/abilities/double_damage_ability.s
+
+# target to generate assembly for a file
+src/abilities/double_damage_ability.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.s
+.PHONY : src/abilities/double_damage_ability.cpp.s
+
+src/abilities/random_attack_ability.o: src/abilities/random_attack_ability.cpp.o
+.PHONY : src/abilities/random_attack_ability.o
+
+# target to build an object file
+src/abilities/random_attack_ability.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o
+.PHONY : src/abilities/random_attack_ability.cpp.o
+
+src/abilities/random_attack_ability.i: src/abilities/random_attack_ability.cpp.i
+.PHONY : src/abilities/random_attack_ability.i
+
+# target to preprocess a source file
+src/abilities/random_attack_ability.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.i
+.PHONY : src/abilities/random_attack_ability.cpp.i
+
+src/abilities/random_attack_ability.s: src/abilities/random_attack_ability.cpp.s
+.PHONY : src/abilities/random_attack_ability.s
+
+# target to generate assembly for a file
+src/abilities/random_attack_ability.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.s
+.PHONY : src/abilities/random_attack_ability.cpp.s
+
+src/abilities/scanner_ability.o: src/abilities/scanner_ability.cpp.o
+.PHONY : src/abilities/scanner_ability.o
+
+# target to build an object file
+src/abilities/scanner_ability.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o
+.PHONY : src/abilities/scanner_ability.cpp.o
+
+src/abilities/scanner_ability.i: src/abilities/scanner_ability.cpp.i
+.PHONY : src/abilities/scanner_ability.i
+
+# target to preprocess a source file
+src/abilities/scanner_ability.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.i
+.PHONY : src/abilities/scanner_ability.cpp.i
+
+src/abilities/scanner_ability.s: src/abilities/scanner_ability.cpp.s
+.PHONY : src/abilities/scanner_ability.s
+
+# target to generate assembly for a file
+src/abilities/scanner_ability.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.s
+.PHONY : src/abilities/scanner_ability.cpp.s
+
 src/entities/field/field.o: src/entities/field/field.cpp.o
 .PHONY : src/entities/field/field.o
 
@@ -258,6 +354,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Game"
+	@echo "... src/abilities/ability_manager.o"
+	@echo "... src/abilities/ability_manager.i"
+	@echo "... src/abilities/ability_manager.s"
+	@echo "... src/abilities/double_damage_ability.o"
+	@echo "... src/abilities/double_damage_ability.i"
+	@echo "... src/abilities/double_damage_ability.s"
+	@echo "... src/abilities/random_attack_ability.o"
+	@echo "... src/abilities/random_attack_ability.i"
+	@echo "... src/abilities/random_attack_ability.s"
+	@echo "... src/abilities/scanner_ability.o"
+	@echo "... src/abilities/scanner_ability.i"
+	@echo "... src/abilities/scanner_ability.s"
 	@echo "... src/entities/field/field.o"
 	@echo "... src/entities/field/field.i"
 	@echo "... src/entities/field/field.s"

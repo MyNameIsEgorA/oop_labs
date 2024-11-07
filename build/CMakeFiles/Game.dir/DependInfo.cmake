@@ -8,6 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/egor/oop_labs/src/abilities/ability_manager.cpp" "CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o" "gcc" "CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o.d"
+  "/home/egor/oop_labs/src/abilities/double_damage_ability.cpp" "CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o" "gcc" "CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o.d"
+  "/home/egor/oop_labs/src/abilities/random_attack_ability.cpp" "CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o" "gcc" "CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o.d"
+  "/home/egor/oop_labs/src/abilities/scanner_ability.cpp" "CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o" "gcc" "CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o.d"
   "/home/egor/oop_labs/src/entities/field/field.cpp" "CMakeFiles/Game.dir/src/entities/field/field.cpp.o" "gcc" "CMakeFiles/Game.dir/src/entities/field/field.cpp.o.d"
   "/home/egor/oop_labs/src/entities/ship/ship.cpp" "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o" "gcc" "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o.d"
   "/home/egor/oop_labs/src/entities/ship_segment/ship_segment.cpp" "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o" "gcc" "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o.d"
