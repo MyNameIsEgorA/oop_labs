@@ -7,3 +7,7 @@ void Scanner::apply(Field& field, int x, int y) const {
         }
     }
 }
+
+void Scanner::printAbility() const {
+    std::cout << "Сканирование области\n";
+}

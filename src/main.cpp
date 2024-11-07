@@ -22,6 +22,7 @@ int main() {
     std::string command;
 
     while (!gameOver) {
+        abilityManager.printAbilities();
         std::cout << "Введите команду (attack x y / ability x y): ";
         std::cin >> command;
 

@@ -38,3 +38,16 @@ void AbilityManager::addAbility() {
     int randomIndex = dis(gen);
     abilities_.push_back(allAbilities[randomIndex]());
 }
+
+void AbilityManager::printAbilities() const {
+    if (this->abilities_.size() == 0) {
+        std::cout << "Список способностей пуст\n";
+        return;
+    }
+    std::cout << "Список способностей:\n\n";
+    for (int i = 0; i < this->abilities_.size(); i++) {
+        std::cout << i << ": ";
+        this->abilities_[i].get()->printAbility();
+    }
+    std::cout << "\n\n";
+}

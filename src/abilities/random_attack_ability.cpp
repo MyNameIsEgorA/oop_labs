@@ -11,3 +11,7 @@ void RandomAttack::apply(Field& field, int x, int y) const {
 
     field.attackCell(randomX, randomY);
 }
+
+void RandomAttack::printAbility() const {
+    std::cout << "Случайная атака\n";
+}

@@ -9,6 +9,7 @@ class RandomAttack : public Ability {
 public:
     void apply(Field& field, int x, int y) const override;
     bool needCoords = false;
+    void printAbility() const override;
 };
 
 #endif // RANDOM_ATTACK_H

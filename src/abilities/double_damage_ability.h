@@ -6,6 +6,7 @@
 class DoubleDamage : public Ability {
 public:
     void apply(Field& field, int x, int y) const override;
+    void printAbility() const override;
 };
 
 #endif // DOUBLE_DAMAGE_H

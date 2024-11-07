@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <chrono>
+#include <iostream>
 
 #include "./base_ability.h"
 #include "./double_damage_ability.h"
@@ -15,6 +16,7 @@ public:
     AbilityManager();
     void applyAbility(Field& field, int x, int y);
     void addAbility();
+    void printAbilities() const;
 
 private:
     std::vector<std::unique_ptr<Ability>> abilities_;
