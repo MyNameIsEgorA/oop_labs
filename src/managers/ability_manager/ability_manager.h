@@ -6,10 +6,10 @@
 #include <chrono>
 #include <iostream>
 
-#include "./base_ability.h"
-#include "./double_damage_ability.h"
-#include "./scanner_ability.h"
-#include "./random_attack_ability.h"
+#include "../../abilities/base_ability.h"
+#include "../../abilities/double_damage_ability.h"
+#include "../../abilities/random_attack_ability.h"
+#include "../../abilities/scanner_ability.h"
 
 class AbilityManager {
 public:

@@ -146,13 +146,17 @@ bool Field::checkArea(int x, int y) const {
 }
 
 
-void Field::attackCell(int x, int y) {
+void Field::attackCell(int x, int y, Attack attack) {
     if (x < 0 || y < 0 || x >= width_ || y >= height_) {
         throw AttackOutOfRangeException();
     }
-
     if (grid_[y][x].shipSegment.has_value()) {
-        grid_[y][x].shipSegment->get().hitSegment();
+        if (attack == Attack::Default) {
+            grid_[y][x].shipSegment->get().hitSegment();
+        } else {
+            grid_[y][x].shipSegment->get().hitSegment();
+            grid_[y][x].shipSegment->get().hitSegment();
+        }
     }
     makePointVisible(x, y);
 }

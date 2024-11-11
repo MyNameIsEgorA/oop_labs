@@ -13,6 +13,11 @@ enum class Orientation {
     Vertical
 };
 
+enum class Attack {
+    Default,
+    Double,
+};
+
 enum class CellState {
     Visible,
     Invisible,
@@ -27,7 +32,7 @@ public:
     Field& operator=(Field&& other) noexcept;
 
     void placeShip(Ship& ship, int x, int y, Orientation orientation);
-    void attackCell(int x, int y);
+    void attackCell(int x, int y, Attack attack);
     void hitCell(int x, int y) const;
 
     void makePointVisible(int x, int y);

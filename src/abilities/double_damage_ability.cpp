@@ -14,8 +14,7 @@ void DoubleDamage::apply(Field& field) const {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return;
     }
-    field.attackCell(x, y);
-    field.attackCell(x, y);
+    field.attackCell(x, y, Attack::Double);
 }
 
 void DoubleDamage::printAbility() const {

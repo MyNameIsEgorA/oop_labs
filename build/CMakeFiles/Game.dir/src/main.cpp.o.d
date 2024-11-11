@@ -194,15 +194,15 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /home/egor/oop_labs/src/entities/field/./../../base_exception.h \
  /home/egor/oop_labs/src/entities/field/../ship_segment/ship_segment.h \
  /usr/include/c++/13/limits \
- /home/egor/oop_labs/src/./abilities/ability_manager.h \
+ /home/egor/oop_labs/src/abilities/base_ability.h \
+ /home/egor/oop_labs/src/managers/ability_manager/ability_manager.h \
  /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/cstdint \
  /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
- /home/egor/oop_labs/src/./abilities/./base_ability.h \
- /home/egor/oop_labs/src/./abilities/./double_damage_ability.h \
- /home/egor/oop_labs/src/./abilities/././base_ability.h \
- /home/egor/oop_labs/src/./abilities/./scanner_ability.h \
- /home/egor/oop_labs/src/./abilities/./random_attack_ability.h \
+ /home/egor/oop_labs/src/managers/ability_manager/../../abilities/base_ability.h \
+ /home/egor/oop_labs/src/managers/ability_manager/../../abilities/double_damage_ability.h \
+ /home/egor/oop_labs/src/managers/ability_manager/../../abilities/./base_ability.h \
+ /home/egor/oop_labs/src/managers/ability_manager/../../abilities/random_attack_ability.h \
  /usr/include/c++/13/random /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -230,5 +230,6 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
  /usr/include/c++/13/bits/stl_numeric.h \
  /usr/include/c++/13/pstl/glue_numeric_defs.h \
- /home/egor/oop_labs/src/abilities/exceptions.h \
- /home/egor/oop_labs/src/abilities/../base_exception.h
+ /home/egor/oop_labs/src/managers/ability_manager/../../abilities/scanner_ability.h \
+ /home/egor/oop_labs/src/managers/ability_manager/exceptions.h \
+ /home/egor/oop_labs/src/managers/ability_manager/../../base_exception.h

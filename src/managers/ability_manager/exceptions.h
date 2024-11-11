@@ -1,6 +1,7 @@
 #ifndef ABILITIES_EXCEPTIONS_H
 #define ABILITIES_EXCEPTIONS_H
-#include "../base_exception.h"
+
+#include "../../base_exception.h"
 
 class EmptyAbilityException final : public BaseException {
 public:

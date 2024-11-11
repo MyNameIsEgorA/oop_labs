@@ -3,8 +3,10 @@
 #include "managers/ship_manager/ship_manager.h"
 #include "entities/field/field.h"
 #include <limits>
-#include "./abilities/ability_manager.h"
-#include "abilities/exceptions.h"
+
+#include "abilities/base_ability.h"
+#include "managers/ability_manager/ability_manager.h"
+#include "managers/ability_manager/exceptions.h"
 
 int main() {
     ShipManager shipManager({ShipSize::BIG, ShipSize::SMALL, ShipSize::MEDIUM, ShipSize::LARGE});
@@ -43,7 +45,7 @@ int main() {
             }
 
             try {
-                field.attackCell(x, y);
+                field.attackCell(x, y, Attack::Default);
                 field.printField();
             } catch(const AttackOutOfRangeException& e) {
                 std::cerr << e.what() << '\n';

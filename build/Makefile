@@ -129,30 +129,6 @@ Game/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
 .PHONY : Game/fast
 
-src/abilities/ability_manager.o: src/abilities/ability_manager.cpp.o
-.PHONY : src/abilities/ability_manager.o
-
-# target to build an object file
-src/abilities/ability_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.o
-.PHONY : src/abilities/ability_manager.cpp.o
-
-src/abilities/ability_manager.i: src/abilities/ability_manager.cpp.i
-.PHONY : src/abilities/ability_manager.i
-
-# target to preprocess a source file
-src/abilities/ability_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.i
-.PHONY : src/abilities/ability_manager.cpp.i
-
-src/abilities/ability_manager.s: src/abilities/ability_manager.cpp.s
-.PHONY : src/abilities/ability_manager.s
-
-# target to generate assembly for a file
-src/abilities/ability_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/abilities/ability_manager.cpp.s
-.PHONY : src/abilities/ability_manager.cpp.s
-
 src/abilities/double_damage_ability.o: src/abilities/double_damage_ability.cpp.o
 .PHONY : src/abilities/double_damage_ability.o
 
@@ -321,6 +297,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/managers/ability_manager/ability_manager.o: src/managers/ability_manager/ability_manager.cpp.o
+.PHONY : src/managers/ability_manager/ability_manager.o
+
+# target to build an object file
+src/managers/ability_manager/ability_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o
+.PHONY : src/managers/ability_manager/ability_manager.cpp.o
+
+src/managers/ability_manager/ability_manager.i: src/managers/ability_manager/ability_manager.cpp.i
+.PHONY : src/managers/ability_manager/ability_manager.i
+
+# target to preprocess a source file
+src/managers/ability_manager/ability_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.i
+.PHONY : src/managers/ability_manager/ability_manager.cpp.i
+
+src/managers/ability_manager/ability_manager.s: src/managers/ability_manager/ability_manager.cpp.s
+.PHONY : src/managers/ability_manager/ability_manager.s
+
+# target to generate assembly for a file
+src/managers/ability_manager/ability_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.s
+.PHONY : src/managers/ability_manager/ability_manager.cpp.s
+
 src/managers/ship_manager/ship_manager.o: src/managers/ship_manager/ship_manager.cpp.o
 .PHONY : src/managers/ship_manager/ship_manager.o
 
@@ -354,9 +354,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Game"
-	@echo "... src/abilities/ability_manager.o"
-	@echo "... src/abilities/ability_manager.i"
-	@echo "... src/abilities/ability_manager.s"
 	@echo "... src/abilities/double_damage_ability.o"
 	@echo "... src/abilities/double_damage_ability.i"
 	@echo "... src/abilities/double_damage_ability.s"
@@ -378,6 +375,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/managers/ability_manager/ability_manager.o"
+	@echo "... src/managers/ability_manager/ability_manager.i"
+	@echo "... src/managers/ability_manager/ability_manager.s"
 	@echo "... src/managers/ship_manager/ship_manager.o"
 	@echo "... src/managers/ship_manager/ship_manager.i"
 	@echo "... src/managers/ship_manager/ship_manager.s"
