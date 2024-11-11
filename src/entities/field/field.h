@@ -31,7 +31,10 @@ public:
     void hitCell(int x, int y) const;
 
     void makePointVisible(int x, int y);
+
     void printField() const;
+
+    [[nodiscard]] bool checkArea(int x, int y) const;
     [[nodiscard]] std::vector<std::pair<int, int>> getNonEmptyCells() const;
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;

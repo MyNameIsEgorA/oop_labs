@@ -125,6 +125,27 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) const {
     return true;
 }
 
+
+bool Field::checkArea(int x, int y) const {
+    if (x < 0 || y < 0 || x >= this->width_ || y >= this->height_) {
+        return false;
+    }
+
+    for (int i = y; i < y + 2; i++) {
+        for (int j = x; j < x + 2; j++) {
+            if (!this->grid_[y][i].shipSegment.has_value()) {
+                continue;
+            }
+            if (this->grid_[i][j].shipSegment->get().getState() != SegmentState::Damaged) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+
 void Field::attackCell(int x, int y) {
     if (x < 0 || y < 0 || x >= width_ || y >= height_) {
         throw AttackOutOfRangeException();
