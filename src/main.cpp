@@ -53,22 +53,7 @@ int main() {
 
             try {
                 std::shared_ptr<Ability> ability = abilityManager.getAbility();
-                if (ability->needsCoordinates()) {
-                    std::cout << "Нужны координаты для абилки\n";
-                    std::cin >> x >> y;
-
-                    if (std::cin.fail()) {
-                        std::cerr << "Неверный ввод" << std::endl;
-                        std::cin.clear();
-                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                        continue;
-                    }
-                } else {
-                    std::cout << "Не нужны координаты для абилки\n";
-                    x = y = -1; // Не используемые координаты
-                }
-
-                ability->apply(field, x, y);
+                ability->apply(field);
                 field.printField();
             } catch(const EmptyAbilityException& e) {
                 std::cerr << e.what() << '\n';

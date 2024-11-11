@@ -1,7 +1,7 @@
 #include "./random_attack_ability.h"
 #include <algorithm> // для std::shuffle
 
-void RandomAttack::apply(Field& field, int x, int y) const {
+void RandomAttack::apply(Field& field) const {
     auto shipCells = field.getNonEmptyCells();
 
     if (shipCells.empty()) {

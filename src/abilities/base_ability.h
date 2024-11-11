@@ -7,7 +7,7 @@
 class Ability {
 public:
     virtual ~Ability() = default;
-    virtual void apply(Field& field, int x, int y) const = 0;
+    virtual void apply(Field& field) const = 0;
     virtual void printAbility() const = 0;
     [[nodiscard]] virtual bool needsCoordinates() const { return true; }
 };
