@@ -127,7 +127,7 @@ bool Field::checkVerticalPlacement(int x, int y, ShipSize shipSize) const {
 
 
 bool Field::checkArea(int x, int y) const {
-    if (x < 0 || y < 0 || x >= this->width_ || y >= this->height_) {
+    if (x < 0 || y < 0 || x + 2 >= this->width_ || y + 2 >= this->height_) {
         return false;
     }
 
@@ -151,12 +151,7 @@ void Field::attackCell(int x, int y, Attack attack) {
         throw AttackOutOfRangeException();
     }
     if (grid_[y][x].shipSegment.has_value()) {
-        if (attack == Attack::Default) {
-            grid_[y][x].shipSegment->get().hitSegment();
-        } else {
-            grid_[y][x].shipSegment->get().hitSegment();
-            grid_[y][x].shipSegment->get().hitSegment();
-        }
+        grid_[y][x].shipSegment->get().hitSegment(attack);
     }
     makePointVisible(x, y);
 }
@@ -167,7 +162,7 @@ void Field::hitCell(int x, int y) const {
     }
 
     if (grid_[y][x].shipSegment.has_value()) {
-        grid_[y][x].shipSegment->get().hitSegment();
+        grid_[y][x].shipSegment->get().hitSegment(Attack::Default);
     }
 }
 

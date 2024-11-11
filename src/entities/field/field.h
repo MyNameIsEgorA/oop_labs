@@ -13,10 +13,6 @@ enum class Orientation {
     Vertical
 };
 
-enum class Attack {
-    Default,
-    Double,
-};
 
 enum class CellState {
     Visible,

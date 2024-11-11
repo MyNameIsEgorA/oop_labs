@@ -6,7 +6,11 @@ SegmentState ShipSegment::getState() const {
     return this->state_;
 }
 
-void ShipSegment::hitSegment() {
+void ShipSegment::hitSegment(Attack attack) {
+    if (attack == Attack::Double) {
+        this->state_ = SegmentState::Damaged;
+        return;
+    }
     if (this->state_ == SegmentState::Damaged) {
         this->state_ = SegmentState::Destroyed;
         return;

@@ -7,11 +7,16 @@ enum class SegmentState {
     Destroyed,
 };
 
+enum class Attack {
+    Default,
+    Double,
+};
+
 class ShipSegment {
 public:
     ShipSegment();
     [[nodiscard]] SegmentState getState() const;
-    void hitSegment();
+    void hitSegment(Attack attack);
 private:
     SegmentState state_;
 };

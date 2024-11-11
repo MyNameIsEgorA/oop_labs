@@ -11,6 +11,7 @@
 int main() {
     ShipManager shipManager({ShipSize::BIG, ShipSize::SMALL, ShipSize::MEDIUM, ShipSize::LARGE});
     Field field(10, 10);
+
     AbilityManager abilityManager;
 
     try {
