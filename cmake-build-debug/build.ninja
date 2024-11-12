@@ -97,6 +97,12 @@ build CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o: CX
   OBJECT_DIR = CMakeFiles/Game.dir
   OBJECT_FILE_DIR = CMakeFiles/Game.dir/src/managers/ability_manager
 
+build CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: CXX_COMPILER__Game_unscanned_Debug /home/egor/oop_labs/src/managers/game_manager/game_manager.cpp || cmake_object_order_depends_target_Game
+  DEP_FILE = CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Game.dir
+  OBJECT_FILE_DIR = CMakeFiles/Game.dir/src/managers/game_manager
+
 build CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: CXX_COMPILER__Game_unscanned_Debug /home/egor/oop_labs/src/managers/ship_manager/ship_manager.cpp || cmake_object_order_depends_target_Game
   DEP_FILE = CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
@@ -111,7 +117,7 @@ build CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: CXX_COMP
 #############################################
 # Link the executable Game
 
-build Game: CXX_EXECUTABLE_LINKER__Game_Debug CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o CMakeFiles/Game.dir/src/entities/field/field.cpp.o CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o CMakeFiles/Game.dir/src/main.cpp.o CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o
+build Game: CXX_EXECUTABLE_LINKER__Game_Debug CMakeFiles/Game.dir/src/abilities/double_damage_ability.cpp.o CMakeFiles/Game.dir/src/abilities/random_attack_ability.cpp.o CMakeFiles/Game.dir/src/abilities/scanner_ability.cpp.o CMakeFiles/Game.dir/src/entities/field/field.cpp.o CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o CMakeFiles/Game.dir/src/main.cpp.o CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Game.dir
   POST_BUILD = :
