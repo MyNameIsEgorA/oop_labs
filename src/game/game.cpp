@@ -113,7 +113,7 @@ bool Game::hasUserWon() const {
     return isAllShipsDestroyed(enemyShipManager);
 }
 
-void Game::useAbility(int abilityIndex) {
+void Game::useAbility() {
     try {
         auto ability = abilityManager.getAbility();
         ability->apply(enemyField);

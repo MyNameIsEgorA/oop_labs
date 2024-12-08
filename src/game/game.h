@@ -32,7 +32,7 @@ public:
     bool isGameOver() const;
     bool hasUserWon() const;
     
-    void useAbility(int abilityIndex);
+    void useAbility();
     bool canUseAbility(int abilityIndex) const;
     
     void printGameState() const;
