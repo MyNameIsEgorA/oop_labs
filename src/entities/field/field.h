@@ -27,7 +27,7 @@ public:
     Field& operator=(const Field& other);
     Field& operator=(Field&& other) noexcept;
 
-    void placeShip(Ship& ship, int x, int y, Orientation orientation);
+    void placeShip(const Ship& ship, int x, int y, Orientation orientation);
     void attackCell(int x, int y, Attack attack);
     void hitCell(int x, int y) const;
 
@@ -39,6 +39,10 @@ public:
     [[nodiscard]] std::vector<std::pair<int, int>> getNonEmptyCells() const;
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;
+
+    bool isCellVisible(int x, int y) const;
+    SegmentState getCellState(int x, int y) const;
+    void setCellState(int x, int y, SegmentState state);
 
 private:
 

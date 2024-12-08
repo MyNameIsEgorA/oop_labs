@@ -19,3 +19,7 @@ void ShipSegment::hitSegment(Attack attack) {
         this->state_ = SegmentState::Damaged;
     }
 }
+
+void ShipSegment::setState(SegmentState state) {
+    state_ = state;
+}

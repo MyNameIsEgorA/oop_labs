@@ -14,8 +14,11 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/egor/oop_labs/src/entities/field/field.cpp" "CMakeFiles/Game.dir/src/entities/field/field.cpp.o" "gcc" "CMakeFiles/Game.dir/src/entities/field/field.cpp.o.d"
   "/home/egor/oop_labs/src/entities/ship/ship.cpp" "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o" "gcc" "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o.d"
   "/home/egor/oop_labs/src/entities/ship_segment/ship_segment.cpp" "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o" "gcc" "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o.d"
+  "/home/egor/oop_labs/src/game/game.cpp" "CMakeFiles/Game.dir/src/game/game.cpp.o" "gcc" "CMakeFiles/Game.dir/src/game/game.cpp.o.d"
+  "/home/egor/oop_labs/src/game/game_state.cpp" "CMakeFiles/Game.dir/src/game/game_state.cpp.o" "gcc" "CMakeFiles/Game.dir/src/game/game_state.cpp.o.d"
   "/home/egor/oop_labs/src/main.cpp" "CMakeFiles/Game.dir/src/main.cpp.o" "gcc" "CMakeFiles/Game.dir/src/main.cpp.o.d"
   "/home/egor/oop_labs/src/managers/ability_manager/ability_manager.cpp" "CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o" "gcc" "CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o.d"
+  "/home/egor/oop_labs/src/managers/game_manager/game_manager.cpp" "CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o" "gcc" "CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o.d"
   "/home/egor/oop_labs/src/managers/ship_manager/ship_manager.cpp" "CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o" "gcc" "CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o.d"
   )
 

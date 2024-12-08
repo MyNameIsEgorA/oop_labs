@@ -37,7 +37,7 @@ Field &Field::operator=(Field &&other) noexcept {
     return *this;
 }
 
-void Field::placeShip(Ship &ship, int x, int y, Orientation orientation) {
+void Field::placeShip(const Ship &ship, int x, int y, Orientation orientation) {
     if (x < 0 || y < 0 || x >= this->width_ || y >= this->height_) {
         throw ShipPlacementOutOfRangeException();
     }
@@ -205,4 +205,30 @@ void Field::printField() const {
         }
         std::cout << std::endl;
     }
+}
+
+bool Field::isCellVisible(int x, int y) const {
+    if (x < 0 || y < 0 || x >= width_ || y >= height_) {
+        throw std::out_of_range("Cell coordinates out of range");
+    }
+    return grid_[y][x].cellState == CellState::Visible;
+}
+
+void Field::setCellState(int x, int y, SegmentState state) {
+    if (x < 0 || y < 0 || x >= width_ || y >= height_) {
+        throw std::out_of_range("Cell coordinates out of range");
+    }
+    if (grid_[y][x].shipSegment.has_value()) {
+        grid_[y][x].shipSegment->get().setState(state);
+    }
+}
+
+SegmentState Field::getCellState(int x, int y) const {
+    if (x < 0 || y < 0 || x >= width_ || y >= height_) {
+        throw std::out_of_range("Cell coordinates out of range");
+    }
+    if (grid_[y][x].shipSegment.has_value()) {
+        return grid_[y][x].shipSegment->get().getState();
+    }
+    return SegmentState::Intact;
 }

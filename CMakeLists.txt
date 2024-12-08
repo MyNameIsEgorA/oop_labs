@@ -10,4 +10,6 @@ file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")
 add_executable(Game ${SOURCES}
         src/managers/ability_manager/exceptions.h
         src/managers/game_manager/game_manager.cpp
-        src/managers/game_manager/game_manager.h)
+        src/managers/game_manager/game_manager.h
+        src/game/game.cpp
+        src/game/game_state.cpp)

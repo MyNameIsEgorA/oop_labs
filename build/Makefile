@@ -273,6 +273,54 @@ src/entities/ship_segment/ship_segment.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.s
 .PHONY : src/entities/ship_segment/ship_segment.cpp.s
 
+src/game/game.o: src/game/game.cpp.o
+.PHONY : src/game/game.o
+
+# target to build an object file
+src/game/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game.cpp.o
+.PHONY : src/game/game.cpp.o
+
+src/game/game.i: src/game/game.cpp.i
+.PHONY : src/game/game.i
+
+# target to preprocess a source file
+src/game/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game.cpp.i
+.PHONY : src/game/game.cpp.i
+
+src/game/game.s: src/game/game.cpp.s
+.PHONY : src/game/game.s
+
+# target to generate assembly for a file
+src/game/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game.cpp.s
+.PHONY : src/game/game.cpp.s
+
+src/game/game_state.o: src/game/game_state.cpp.o
+.PHONY : src/game/game_state.o
+
+# target to build an object file
+src/game/game_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game_state.cpp.o
+.PHONY : src/game/game_state.cpp.o
+
+src/game/game_state.i: src/game/game_state.cpp.i
+.PHONY : src/game/game_state.i
+
+# target to preprocess a source file
+src/game/game_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game_state.cpp.i
+.PHONY : src/game/game_state.cpp.i
+
+src/game/game_state.s: src/game/game_state.cpp.s
+.PHONY : src/game/game_state.s
+
+# target to generate assembly for a file
+src/game/game_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game_state.cpp.s
+.PHONY : src/game/game_state.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -320,6 +368,30 @@ src/managers/ability_manager/ability_manager.s: src/managers/ability_manager/abi
 src/managers/ability_manager/ability_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.s
 .PHONY : src/managers/ability_manager/ability_manager.cpp.s
+
+src/managers/game_manager/game_manager.o: src/managers/game_manager/game_manager.cpp.o
+.PHONY : src/managers/game_manager/game_manager.o
+
+# target to build an object file
+src/managers/game_manager/game_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o
+.PHONY : src/managers/game_manager/game_manager.cpp.o
+
+src/managers/game_manager/game_manager.i: src/managers/game_manager/game_manager.cpp.i
+.PHONY : src/managers/game_manager/game_manager.i
+
+# target to preprocess a source file
+src/managers/game_manager/game_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.i
+.PHONY : src/managers/game_manager/game_manager.cpp.i
+
+src/managers/game_manager/game_manager.s: src/managers/game_manager/game_manager.cpp.s
+.PHONY : src/managers/game_manager/game_manager.s
+
+# target to generate assembly for a file
+src/managers/game_manager/game_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.s
+.PHONY : src/managers/game_manager/game_manager.cpp.s
 
 src/managers/ship_manager/ship_manager.o: src/managers/ship_manager/ship_manager.cpp.o
 .PHONY : src/managers/ship_manager/ship_manager.o
@@ -372,12 +444,21 @@ help:
 	@echo "... src/entities/ship_segment/ship_segment.o"
 	@echo "... src/entities/ship_segment/ship_segment.i"
 	@echo "... src/entities/ship_segment/ship_segment.s"
+	@echo "... src/game/game.o"
+	@echo "... src/game/game.i"
+	@echo "... src/game/game.s"
+	@echo "... src/game/game_state.o"
+	@echo "... src/game/game_state.i"
+	@echo "... src/game/game_state.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/managers/ability_manager/ability_manager.o"
 	@echo "... src/managers/ability_manager/ability_manager.i"
 	@echo "... src/managers/ability_manager/ability_manager.s"
+	@echo "... src/managers/game_manager/game_manager.o"
+	@echo "... src/managers/game_manager/game_manager.i"
+	@echo "... src/managers/game_manager/game_manager.s"
 	@echo "... src/managers/ship_manager/ship_manager.o"
 	@echo "... src/managers/ship_manager/ship_manager.i"
 	@echo "... src/managers/ship_manager/ship_manager.s"
