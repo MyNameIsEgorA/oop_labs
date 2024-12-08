@@ -40,8 +40,8 @@ public:
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;
 
-    bool isCellVisible(int x, int y) const;
-    SegmentState getCellState(int x, int y) const;
+    [[nodiscard]] bool isCellVisible(int x, int y) const;
+    [[nodiscard]] SegmentState getCellState(int x, int y) const;
     void setCellState(int x, int y, SegmentState state);
 
 private:

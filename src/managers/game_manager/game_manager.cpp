@@ -185,7 +185,7 @@ void GameManager::handleUserInput() {
     }
 }
 
-void GameManager::makeEnemyTurn() {
+void GameManager::makeEnemyTurn() const {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, fieldWidth - 1);
@@ -265,7 +265,7 @@ void GameManager::setupNewGame() {
     initializeGame();
 }
 
-bool GameManager::placeShip(Field& field, const Ship& ship, int x, int y, Orientation orientation) {
+bool GameManager::placeShip(Field& field, const Ship& ship, int x, int y, const Orientation orientation) {
     try {
         field.placeShip(ship, x, y, orientation);
         return true;

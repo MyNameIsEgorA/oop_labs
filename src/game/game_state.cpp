@@ -1,9 +1,9 @@
 #include "game_state.h"
 
-GameState::GameState(int width, int height, int round,
-                    const Field& userField, const Field& enemyField,
-                    const std::vector<ShipSize>& userShips,
-                    const std::vector<ShipSize>& enemyShips)
+GameState::GameState(const int width, const int height, const int round,
+                     const Field& userField, const Field& enemyField,
+                     const std::vector<ShipSize>& userShips,
+                     const std::vector<ShipSize>& enemyShips)
     : fieldWidth(width)
     , fieldHeight(height)
     , currentRound(round)

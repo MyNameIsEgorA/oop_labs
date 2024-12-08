@@ -24,16 +24,16 @@ private:
     void initializeGame();
     void gameLoop();
     void handleUserInput();
-    void makeEnemyTurn();
+    void makeEnemyTurn() const;
     void printGameState() const;
-    bool isGameOver() const;
-    bool hasUserWon() const;
+    [[nodiscard]] bool isGameOver() const;
+    [[nodiscard]] bool hasUserWon() const;
     void setupNewRound();
     void setupNewGame();
     
-    std::pair<int, int> getFieldSize() const;
-    std::vector<ShipsInfo> getUserShipsInfo() const;
-    std::vector<ShipsInfo> generateEnemyShipsInfo() const;
+    [[nodiscard]] std::pair<int, int> getFieldSize() const;
+    [[nodiscard]] std::vector<ShipsInfo> getUserShipsInfo() const;
+    [[nodiscard]] std::vector<ShipsInfo> generateEnemyShipsInfo() const;
     bool placeShip(Field& field, const Ship& ship, int x, int y, Orientation orientation);
     
     int fieldWidth;
