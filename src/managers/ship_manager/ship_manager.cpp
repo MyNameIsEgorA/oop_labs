@@ -15,7 +15,7 @@ const Ship& ShipManager::getShip(int index) const {
 }
 
 int ShipManager::getShipCount() const {
-    return ships_.size();
+    return static_cast<int>(ships_.size());
 }
 
 void ShipManager::printShips() const {

@@ -1482,21 +1482,22 @@ CMakeFiles/Game.dir/src/game/game.cpp.o: /home/egor/oop_labs/src/game/game.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
+  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
   /home/egor/oop_labs/src/base_exception.h \
   /home/egor/oop_labs/src/entities/field/exceptions.h \
   /home/egor/oop_labs/src/entities/field/field.h \
+  /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/abilities/base_ability.h \
   /home/egor/oop_labs/src/abilities/base_ability.h \
   /home/egor/oop_labs/src/abilities/double_damage_ability.h \
   /home/egor/oop_labs/src/abilities/random_attack_ability.h \
   /home/egor/oop_labs/src/abilities/scanner_ability.h \
   /home/egor/oop_labs/src/managers/ability_manager/ability_manager.h \
-  /home/egor/oop_labs/src/entities/ship_segment/ship_segment.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h \
-  /home/egor/oop_labs/src/game/game.h \
+  /home/egor/oop_labs/src/managers/game_manager/game_manager.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2057,7 +2058,9 @@ CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: /home/egor/oop
   /home/egor/oop_labs/src/abilities/double_damage_ability.h \
   /home/egor/oop_labs/src/abilities/random_attack_ability.h \
   /home/egor/oop_labs/src/abilities/scanner_ability.h \
+  /home/egor/oop_labs/src/base_exception.h \
   /home/egor/oop_labs/src/managers/ability_manager/ability_manager.h \
+  /home/egor/oop_labs/src/managers/ability_manager/exceptions.h \
   /home/egor/oop_labs/src/entities/ship/ship.h \
   /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h \
   /home/egor/oop_labs/src/managers/game_manager/game_manager.h \
@@ -2139,7 +2142,6 @@ CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: /home/egor/oop
   /usr/include/c++/13/bits/stl_numeric.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
@@ -2216,7 +2218,6 @@ CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: /home/egor/oop
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
-  /usr/include/c++/13/utility \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -2564,8 +2565,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 
 /home/egor/oop_labs/src/abilities/scanner_ability.cpp:
 
-/usr/include/c++/13/bits/stl_relops.h:
-
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
@@ -2687,8 +2686,6 @@ CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop
 /usr/include/c++/13/new:
 
 /usr/include/c++/13/ext/alloc_traits.h:
-
-/usr/include/c++/13/utility:
 
 /usr/include/c++/13/bits/stl_heap.h:
 
