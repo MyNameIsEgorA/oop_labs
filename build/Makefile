@@ -297,6 +297,30 @@ src/game/game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game.cpp.s
 .PHONY : src/game/game.cpp.s
 
+src/game/game_state.o: src/game/game_state.cpp.o
+.PHONY : src/game/game_state.o
+
+# target to build an object file
+src/game/game_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game_state.cpp.o
+.PHONY : src/game/game_state.cpp.o
+
+src/game/game_state.i: src/game/game_state.cpp.i
+.PHONY : src/game/game_state.i
+
+# target to preprocess a source file
+src/game/game_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game_state.cpp.i
+.PHONY : src/game/game_state.cpp.i
+
+src/game/game_state.s: src/game/game_state.cpp.s
+.PHONY : src/game/game_state.s
+
+# target to generate assembly for a file
+src/game/game_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/src/game/game_state.cpp.s
+.PHONY : src/game/game_state.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -423,6 +447,9 @@ help:
 	@echo "... src/game/game.o"
 	@echo "... src/game/game.i"
 	@echo "... src/game/game.s"
+	@echo "... src/game/game_state.o"
+	@echo "... src/game/game_state.i"
+	@echo "... src/game/game_state.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

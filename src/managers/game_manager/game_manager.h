@@ -17,6 +17,8 @@ class GameManager {
 public:
     GameManager();
     void startGame();
+    void saveGame(const std::string& filename) const;
+    void loadGame(const std::string& filename);
 
 private:
     void initializeGame();

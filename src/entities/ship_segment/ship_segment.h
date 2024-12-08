@@ -17,6 +17,7 @@ public:
     ShipSegment();
     [[nodiscard]] SegmentState getState() const;
     void hitSegment(Attack attack);
+    void setState(SegmentState state);
 private:
     SegmentState state_;
 };

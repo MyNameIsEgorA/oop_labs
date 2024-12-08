@@ -167,10 +167,24 @@ CMakeFiles/Game.dir/src/game/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Game.dir/src/game/game.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/oop_labs/src/game/game.cpp -o CMakeFiles/Game.dir/src/game/game.cpp.s
 
+CMakeFiles/Game.dir/src/game/game_state.cpp.o: CMakeFiles/Game.dir/flags.make
+CMakeFiles/Game.dir/src/game/game_state.cpp.o: /home/egor/oop_labs/src/game/game_state.cpp
+CMakeFiles/Game.dir/src/game/game_state.cpp.o: CMakeFiles/Game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Game.dir/src/game/game_state.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Game.dir/src/game/game_state.cpp.o -MF CMakeFiles/Game.dir/src/game/game_state.cpp.o.d -o CMakeFiles/Game.dir/src/game/game_state.cpp.o -c /home/egor/oop_labs/src/game/game_state.cpp
+
+CMakeFiles/Game.dir/src/game/game_state.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Game.dir/src/game/game_state.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/oop_labs/src/game/game_state.cpp > CMakeFiles/Game.dir/src/game/game_state.cpp.i
+
+CMakeFiles/Game.dir/src/game/game_state.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Game.dir/src/game/game_state.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/oop_labs/src/game/game_state.cpp -o CMakeFiles/Game.dir/src/game/game_state.cpp.s
+
 CMakeFiles/Game.dir/src/main.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp
 CMakeFiles/Game.dir/src/main.cpp.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Game.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Game.dir/src/main.cpp.o -MF CMakeFiles/Game.dir/src/main.cpp.o.d -o CMakeFiles/Game.dir/src/main.cpp.o -c /home/egor/oop_labs/src/main.cpp
 
 CMakeFiles/Game.dir/src/main.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/Game.dir/src/main.cpp.s: cmake_force
 CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o: /home/egor/oop_labs/src/managers/ability_manager/ability_manager.cpp
 CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o -MF CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o.d -o CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o -c /home/egor/oop_labs/src/managers/ability_manager/ability_manager.cpp
 
 CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.s: cmake_fo
 CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: /home/egor/oop_labs/src/managers/game_manager/game_manager.cpp
 CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o -MF CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o.d -o CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o -c /home/egor/oop_labs/src/managers/game_manager/game_manager.cpp
 
 CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.s: cmake_force
 CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: /home/egor/oop_labs/src/managers/ship_manager/ship_manager.cpp
 CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o: CMakeFiles/Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o -MF CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o.d -o CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o -c /home/egor/oop_labs/src/managers/ship_manager/ship_manager.cpp
 
 CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.i: cmake_force
@@ -232,6 +246,7 @@ Game_OBJECTS = \
 "CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o" \
 "CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o" \
 "CMakeFiles/Game.dir/src/game/game.cpp.o" \
+"CMakeFiles/Game.dir/src/game/game_state.cpp.o" \
 "CMakeFiles/Game.dir/src/main.cpp.o" \
 "CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o" \
 "CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o" \
@@ -247,13 +262,14 @@ Game: CMakeFiles/Game.dir/src/entities/field/field.cpp.o
 Game: CMakeFiles/Game.dir/src/entities/ship/ship.cpp.o
 Game: CMakeFiles/Game.dir/src/entities/ship_segment/ship_segment.cpp.o
 Game: CMakeFiles/Game.dir/src/game/game.cpp.o
+Game: CMakeFiles/Game.dir/src/game/game_state.cpp.o
 Game: CMakeFiles/Game.dir/src/main.cpp.o
 Game: CMakeFiles/Game.dir/src/managers/ability_manager/ability_manager.cpp.o
 Game: CMakeFiles/Game.dir/src/managers/game_manager/game_manager.cpp.o
 Game: CMakeFiles/Game.dir/src/managers/ship_manager/ship_manager.cpp.o
 Game: CMakeFiles/Game.dir/build.make
 Game: CMakeFiles/Game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/egor/oop_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
