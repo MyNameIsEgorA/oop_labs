@@ -7,7 +7,7 @@ ShipManager::ShipManager(const std::vector<ShipSize>& shipSizes)
     }
 }
 
-Ship& ShipManager::getShip(int index) {
+const Ship& ShipManager::getShip(int index) const {
     if (index < 0 || index >= ships_.size()) {
         throw std::out_of_range("Invalid ship index");
     }

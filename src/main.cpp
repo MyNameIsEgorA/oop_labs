@@ -1,80 +1,64 @@
 #include <iostream>
-#include "entities/ship/ship.h"
-#include "managers/ship_manager/ship_manager.h"
-#include "entities/field/field.h"
 #include <limits>
+#include "game/game.h"
 
-#include "abilities/base_ability.h"
-#include "managers/ability_manager/ability_manager.h"
-#include "managers/ability_manager/exceptions.h"
+void clearInputStream() {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
 
 int main() {
-    ShipManager shipManager({ShipSize::BIG, ShipSize::SMALL, ShipSize::MEDIUM, ShipSize::LARGE});
-    Field field(10, 10);
-
-    AbilityManager abilityManager;
-
-    try {
-        field.placeShip(shipManager.getShip(0), 1, 1, Orientation::Horizontal);
-        field.placeShip(shipManager.getShip(2), 8, 1, Orientation::Vertical);
-    } catch(const ShipPlacementOutOfRangeException& e) {
-        std::cerr << e.what() << '\n';
-    } catch(const ShipIncorrectPlacementException& e) {
-        std::cerr << e.what() << '\n';
-    }
-    
-    int x, y;
-    bool gameOver = false;
+    Game game;
+    bool isRunning = true;
     std::string command;
 
-    while (!gameOver) {
-        if (shipManager.hasDestroyedShipsChanged() == true) {
-            abilityManager.addAbility();
-        }
-        abilityManager.printAbilities();
-        std::cout << "Введите команду (attack x y / ability / Конец): ";
+    while (isRunning) {
+        game.printGameState();
+        
+        std::cout << "\nВведите команду (attack x y / ability / exit): ";
         std::cin >> command;
 
         if (command == "attack") {
+            int x, y;
             std::cin >> x >> y;
 
             if (std::cin.fail()) {
-                std::cerr << "Неверный ввод" << std::endl;
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cerr << "Неверный ввод координат" << std::endl;
+                clearInputStream();
                 continue;
             }
 
-            try {
-                field.attackCell(x, y, Attack::Default);
-                field.printField();
-            } catch(const AttackOutOfRangeException& e) {
-                std::cerr << e.what() << '\n';
+            if (game.makeUserTurn(x, y)) {
+                game.makeEnemyTurn();
+                
+                if (game.isGameOver()) {
+                    if (game.hasUserWon()) {
+                        std::cout << "\n=== Вы выиграли раунд! ===\n";
+                        game.startNewRound();
+                    } else {
+                        std::cout << "\n=== Вы проиграли! ===\n";
+                        std::cout << "Начинаем новую игру...\n";
+                        game.startNewGame();
+                    }
+                }
             }
 
         } else if (command == "ability") {
-
             try {
-                std::shared_ptr<Ability> ability = abilityManager.getAbility();
-                ability->apply(field);
-                field.printField();
-            } catch(const EmptyAbilityException& e) {
+                game.useAbility(); 
+                game.makeEnemyTurn();
+            } catch(const std::exception& e) {
                 std::cerr << e.what() << '\n';
             }
 
-        } else if (command == "Конец") {
-            gameOver = true;
+        } else if (command == "exit") {
+            isRunning = false;
         } else {
             std::cerr << "Неизвестная команда" << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
+            clearInputStream();
         }
     }
 
-    std::cout << "Game Over!" << std::endl;
-    field.printField();
-    shipManager.printShips();
-
+    std::cout << "Игра завершена!" << std::endl;
     return 0;
 }

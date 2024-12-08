@@ -148,13 +148,15 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /home/egor/oop_labs/src/entities/ship/ship.h /usr/include/c++/13/vector \
- /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/limits \
+ /home/egor/oop_labs/src/game/game.h \
+ /home/egor/oop_labs/src/game/../managers/ship_manager/ship_manager.h \
+ /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
- /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/bits/vector.tcc \
+ /home/egor/oop_labs/src/game/../managers/ship_manager/../../entities/ship/ship.h \
+ /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13/bits/align.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
@@ -172,10 +174,13 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /home/egor/oop_labs/src/entities/ship/../ship_segment/ship_segment.h \
- /home/egor/oop_labs/src/managers/ship_manager/ship_manager.h \
- /home/egor/oop_labs/src/managers/ship_manager/../../entities/ship/ship.h \
- /home/egor/oop_labs/src/entities/field/field.h \
+ /home/egor/oop_labs/src/game/../managers/ship_manager/../../entities/ship/../ship_segment/ship_segment.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/ability_manager.h \
+ /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
+ /usr/include/c++/13/ratio /usr/include/c++/13/cstdint \
+ /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/base_ability.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/../entities/field/field.h \
  /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
@@ -189,20 +194,13 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /home/egor/oop_labs/src/entities/field/../ship/ship.h \
- /home/egor/oop_labs/src/entities/field/./exceptions.h \
- /home/egor/oop_labs/src/entities/field/./../../base_exception.h \
- /home/egor/oop_labs/src/entities/field/../ship_segment/ship_segment.h \
- /usr/include/c++/13/limits \
- /home/egor/oop_labs/src/abilities/base_ability.h \
- /home/egor/oop_labs/src/managers/ability_manager/ability_manager.h \
- /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
- /usr/include/c++/13/ratio /usr/include/c++/13/cstdint \
- /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
- /home/egor/oop_labs/src/managers/ability_manager/../../abilities/base_ability.h \
- /home/egor/oop_labs/src/managers/ability_manager/../../abilities/double_damage_ability.h \
- /home/egor/oop_labs/src/managers/ability_manager/../../abilities/./base_ability.h \
- /home/egor/oop_labs/src/managers/ability_manager/../../abilities/random_attack_ability.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/../entities/field/../ship/ship.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/../entities/field/./exceptions.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/../entities/field/./../../base_exception.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/../entities/field/../ship_segment/ship_segment.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/double_damage_ability.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/./base_ability.h \
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/random_attack_ability.h \
  /usr/include/c++/13/random /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -230,6 +228,4 @@ CMakeFiles/Game.dir/src/main.cpp.o: /home/egor/oop_labs/src/main.cpp \
  /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
  /usr/include/c++/13/bits/stl_numeric.h \
  /usr/include/c++/13/pstl/glue_numeric_defs.h \
- /home/egor/oop_labs/src/managers/ability_manager/../../abilities/scanner_ability.h \
- /home/egor/oop_labs/src/managers/ability_manager/exceptions.h \
- /home/egor/oop_labs/src/managers/ability_manager/../../base_exception.h
+ /home/egor/oop_labs/src/game/../managers/ability_manager/../../abilities/scanner_ability.h

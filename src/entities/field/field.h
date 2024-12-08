@@ -27,7 +27,7 @@ public:
     Field& operator=(const Field& other);
     Field& operator=(Field&& other) noexcept;
 
-    void placeShip(Ship& ship, int x, int y, Orientation orientation);
+    void placeShip(const Ship& ship, int x, int y, Orientation orientation);
     void attackCell(int x, int y, Attack attack);
     void hitCell(int x, int y) const;
 

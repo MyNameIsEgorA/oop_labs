@@ -18,6 +18,8 @@ public:
     void addAbility();
     void printAbilities() const;
 
+    [[nodiscard]] bool isAbleToUseAbility() const;
+
 private:
     std::vector<std::unique_ptr<Ability>> abilities_;
 };

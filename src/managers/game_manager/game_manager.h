@@ -35,7 +35,7 @@ private:
     void getFieldSize();
     void getShipsInfo();
     void initializeField(ActorType actor);
-    std::vector<ShipSize> GameManager::initializeShipSizes(ActorType actor) const;
+    std::vector<ShipSize> initializeShipSizes(ActorType actor) const;
 
     int fieldWidth;
     int fieldHeight;

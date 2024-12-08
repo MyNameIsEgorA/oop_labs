@@ -37,7 +37,7 @@ Field &Field::operator=(Field &&other) noexcept {
     return *this;
 }
 
-void Field::placeShip(Ship &ship, int x, int y, Orientation orientation) {
+void Field::placeShip(const Ship &ship, int x, int y, Orientation orientation) {
     if (x < 0 || y < 0 || x >= this->width_ || y >= this->height_) {
         throw ShipPlacementOutOfRangeException();
     }

@@ -56,3 +56,7 @@ void AbilityManager::printAbilities() const {
     }
     std::cout << "\n\n";
 }
+
+bool AbilityManager::isAbleToUseAbility() const {
+    return !this->abilities_.empty();
+}
