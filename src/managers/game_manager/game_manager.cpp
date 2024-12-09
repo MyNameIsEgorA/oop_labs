@@ -13,49 +13,49 @@ void GameManager::initializeGame() {
     auto [width, height] = getFieldSize();
     fieldWidth = width;
     fieldHeight = height;
-    
+
     userField = std::make_unique<Field>(width, height);
     enemyField = std::make_unique<Field>(width, height);
-    
+
     auto userShips = getUserShipsInfo();
     auto enemyShips = generateEnemyShipsInfo();
-    
+
     std::vector<ShipSize> userShipSizes;
-    for (const auto& shipInfo : userShips) {
+    for (const auto &shipInfo: userShips) {
         userShipSizes.push_back(shipInfo.size);
     }
-    
+
     std::vector<ShipSize> enemyShipSizes;
-    for (const auto& shipInfo : enemyShips) {
+    for (const auto &shipInfo: enemyShips) {
         enemyShipSizes.push_back(shipInfo.size);
     }
-    
+
     userShipManager = std::make_unique<ShipManager>(userShipSizes);
     enemyShipManager = std::make_unique<ShipManager>(enemyShipSizes);
     abilityManager = std::make_unique<AbilityManager>();
     currentRound = 1;
-    
+
     // Размещаем корабли игрока
     for (size_t i = 0; i < userShips.size(); ++i) {
-        const auto& info = userShips[i];
+        const auto &info = userShips[i];
         placeShip(*userField, userShipManager->getShip(i), info.PlacementX, info.PlacementY, Orientation::Horizontal);
     }
-    
+
     // Делаем все клетки поля пользователя видимыми
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             userField->makePointVisible(x, y);
         }
     }
-    
+
     // Размещаем корабли противника
     for (size_t i = 0; i < enemyShips.size(); ++i) {
-        const auto& info = enemyShips[i];
+        const auto &info = enemyShips[i];
         placeShip(*enemyField, enemyShipManager->getShip(i), info.PlacementX, info.PlacementY, Orientation::Horizontal);
     }
 }
 
-std::pair<int, int> GameManager::getFieldSize() const {
+std::pair<int, int> GameManager::getFieldSize() {
     int width, height;
     while (true) {
         std::cout << "Введите размер поля (ширина высота): ";
@@ -69,33 +69,33 @@ std::pair<int, int> GameManager::getFieldSize() const {
     return {width, height};
 }
 
-std::vector<ShipsInfo> GameManager::getUserShipsInfo() const {
+std::vector<ShipsInfo> GameManager::getUserShipsInfo() {
     std::vector<ShipsInfo> ships;
     int shipCount;
-    
+
     std::cout << "Сколько кораблей вы хотите разместить? ";
     std::cin >> shipCount;
-    
+
     for (int i = 0; i < shipCount; ++i) {
         ShipsInfo info;
         int size;
         std::cout << "Введите размер корабля " << i + 1 << " (1-4): ";
         std::cin >> size;
         info.size = static_cast<ShipSize>(size);
-        
+
         std::cout << "Введите координаты размещения (x y): ";
         std::cin >> info.PlacementX >> info.PlacementY;
-        
+
         ships.push_back(info);
     }
-    
+
     return ships;
 }
 
-std::vector<ShipsInfo> GameManager::generateEnemyShipsInfo() const {
+std::vector<ShipsInfo> GameManager::generateEnemyShipsInfo() {
     std::vector<ShipsInfo> ships;
     ShipsInfo info;
-    info.size = ShipSize::SMALL;  // Корабль размера 1
+    info.size = ShipSize::SMALL;
     info.PlacementX = 1;
     info.PlacementY = 1;
     ships.push_back(info);
@@ -106,26 +106,26 @@ void GameManager::startGame() {
     std::cout << "1. Загрузить сохранение\n";
     std::cout << "2. Начать новую игру\n";
     std::cout << "Выберите действие (1/2): ";
-    
+
     int choice;
     while (!(std::cin >> choice) || (choice != 1 && choice != 2)) {
         std::cout << "Некорректный ввод. Пожалуйста, введите 1 или 2: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    
+
     if (choice == 1) {
         try {
             loadGame("save");
             std::cout << "Игра загружена\n";
-        } catch (const std::exception& e) {
+        } catch (const std::exception &e) {
             std::cout << "Ошибка загрузки: " << e.what() << "\nНачинаем новую игру\n";
             initializeGame();
         }
     } else {
         initializeGame();
     }
-    
+
     while (isRunning) {
         gameLoop();
     }
@@ -134,13 +134,13 @@ void GameManager::startGame() {
 void GameManager::gameLoop() {
     printGameState();
     handleUserInput();
-    
+
     if (!isRunning) return;
-    
+
     if (!isGameOver()) {
         makeEnemyTurn();
     }
-    
+
     if (isGameOver()) {
         if (hasUserWon()) {
             std::cout << "\n=== Вы выиграли раунд! ===\n";
@@ -154,9 +154,9 @@ void GameManager::gameLoop() {
 
 void GameManager::handleUserInput() {
     std::string command;
-    std::cout << "\nВведите команду (attack x y / ability / save / exit): ";
+    std::cout << "\nВведите команду (attack x y / ability x y / save / exit): ";
     std::cin >> command;
-    
+
     if (command == "attack") {
         int x, y;
         if (std::cin >> x >> y) {
@@ -165,15 +165,21 @@ void GameManager::handleUserInput() {
                 if (enemyShipManager->hasDestroyedShipsChanged()) {
                     abilityManager->addAbility();
                 }
-            } catch (const AttackOutOfRangeException& e) {
+            } catch (const AttackOutOfRangeException &e) {
                 std::cerr << e.what() << '\n';
             }
         }
     } else if (command == "ability") {
         try {
+            // Проверяем, есть ли доступные способности
+            if (abilityManager->getAvailableAbilities().empty()) {
+                std::cerr << "Нет доступных способностей\n";
+                return;
+            }
+
             auto ability = abilityManager->getAbility();
             ability->apply(*enemyField);
-        } catch (const EmptyAbilityException& e) {
+        } catch (const EmptyAbilityException &e) {
             std::cerr << e.what() << '\n';
         }
     } else if (command == "save") {
@@ -185,18 +191,18 @@ void GameManager::handleUserInput() {
     }
 }
 
-void GameManager::makeEnemyTurn() {
+void GameManager::makeEnemyTurn() const {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, fieldWidth - 1);
-    
+
     while (true) {
         try {
             int x = dis(gen);
             int y = dis(gen);
             userField->attackCell(x, y, Attack::Default);
             break;
-        } catch (const AttackOutOfRangeException&) {
+        } catch (const AttackOutOfRangeException &) {
             continue;
         }
     }
@@ -215,21 +221,21 @@ void GameManager::printGameState() const {
 bool GameManager::isGameOver() const {
     bool userLost = true;
     bool enemyLost = true;
-    
+
     for (int i = 0; i < userShipManager->getShipCount(); ++i) {
         if (!userShipManager->getShip(i).isDestroyed()) {
             userLost = false;
             break;
         }
     }
-    
+
     for (int i = 0; i < enemyShipManager->getShipCount(); ++i) {
         if (!enemyShipManager->getShip(i).isDestroyed()) {
             enemyLost = false;
             break;
         }
     }
-    
+
     return userLost || enemyLost;
 }
 
@@ -239,6 +245,7 @@ bool GameManager::hasUserWon() const {
             return false;
         }
     }
+    abilityManager->addAbility();
     return true;
 }
 
@@ -246,16 +253,16 @@ void GameManager::setupNewRound() {
     currentRound++;
     enemyField = std::make_unique<Field>(fieldWidth, fieldHeight);
     auto enemyShips = generateEnemyShipsInfo();
-    
+
     std::vector<ShipSize> enemyShipSizes;
-    for (const auto& shipInfo : enemyShips) {
+    for (const auto &shipInfo: enemyShips) {
         enemyShipSizes.push_back(shipInfo.size);
     }
-    
+
     enemyShipManager = std::make_unique<ShipManager>(enemyShipSizes);
-    
+
     for (size_t i = 0; i < enemyShips.size(); ++i) {
-        const auto& info = enemyShips[i];
+        const auto &info = enemyShips[i];
         placeShip(*enemyField, enemyShipManager->getShip(i), info.PlacementX, info.PlacementY, Orientation::Horizontal);
     }
 }
@@ -265,66 +272,66 @@ void GameManager::setupNewGame() {
     initializeGame();
 }
 
-bool GameManager::placeShip(Field& field, const Ship& ship, int x, int y, Orientation orientation) {
+bool GameManager::placeShip(Field &field, const Ship &ship, int x, int y, Orientation orientation) {
     try {
         field.placeShip(ship, x, y, orientation);
         return true;
-    } catch (const std::exception& e) {
+    } catch (const std::exception &e) {
         std::cerr << "Ошибка размещения корабля: " << e.what() << '\n';
         return false;
     }
 }
 
-void GameManager::saveGame(const std::string& filename) const {
+void GameManager::saveGame(const std::string &filename) const {
     std::ofstream file(filename);
     if (!file) {
         throw std::runtime_error("Не удалось открыть файл для сохранения");
     }
-    
+
     std::vector<ShipSize> userShipSizes;
     std::vector<ShipSize> enemyShipSizes;
-    
+
     for (int i = 0; i < userShipManager->getShipCount(); ++i) {
         userShipSizes.push_back(userShipManager->getShip(i).getLength());
     }
-    
+
     for (int i = 0; i < enemyShipManager->getShipCount(); ++i) {
         enemyShipSizes.push_back(enemyShipManager->getShip(i).getLength());
     }
-    
-    GameState state(fieldWidth, fieldHeight, currentRound, 
-                   *userField, *enemyField, 
-                   userShipSizes, enemyShipSizes);
-    
+
+    GameState state(fieldWidth, fieldHeight, currentRound,
+                    *userField, *enemyField,
+                    userShipSizes, enemyShipSizes,
+                    abilityManager->getAvailableAbilities());
+
     file << state;
 }
 
-void GameManager::loadGame(const std::string& filename) {
+void GameManager::loadGame(const std::string &filename) {
     std::ifstream file(filename);
     if (!file) {
         throw std::runtime_error("Не удалось открыть файл для загрузки");
     }
-    
+
     GameState state;
     file >> state;
-    
+
     fieldWidth = state.fieldWidth;
     fieldHeight = state.fieldHeight;
     currentRound = state.currentRound;
-    
+
     userField = std::make_unique<Field>(fieldWidth, fieldHeight);
     enemyField = std::make_unique<Field>(fieldWidth, fieldHeight);
-    
-    // Создаем менеджеры кораблей
+
     userShipManager = std::make_unique<ShipManager>(state.userShipSizes);
     enemyShipManager = std::make_unique<ShipManager>(state.enemyShipSizes);
-    abilityManager = std::make_unique<AbilityManager>();
-    
+    abilityManager = std::make_unique<AbilityManager>(state.abilities);
+
     // Размещаем корабли пользователя
-    std::vector<std::pair<int, int>> userShipPositions = {
+    std::vector<std::pair<int, int> > userShipPositions = {
         {1, 1}, {3, 3}, {8, 1}, {5, 5}
     };
-    
+
     for (size_t i = 0; i < state.userShipSizes.size(); ++i) {
         auto [x, y] = userShipPositions[i];
         placeShip(*userField, userShipManager->getShip(i), x, y, Orientation::Horizontal);
@@ -333,7 +340,7 @@ void GameManager::loadGame(const std::string& filename) {
             segments[j]->setState(state.userFieldState[y][x + j]);
         }
     }
-    
+
     // Размещаем корабль противника
     if (!state.enemyShipSizes.empty()) {
         placeShip(*enemyField, enemyShipManager->getShip(0), 1, 1, Orientation::Horizontal);
@@ -342,14 +349,14 @@ void GameManager::loadGame(const std::string& filename) {
             segments[i]->setState(state.enemyFieldState[1][1 + i]);
         }
     }
-    
+
     // Делаем все клетки поля пользователя видимыми
     for (int y = 0; y < fieldHeight; ++y) {
         for (int x = 0; x < fieldWidth; ++x) {
             userField->makePointVisible(x, y);
         }
     }
-    
+
     // Восстанавливаем видимость поля противника
     for (int y = 0; y < fieldHeight; ++y) {
         for (int x = 0; x < fieldWidth; ++x) {

@@ -60,3 +60,43 @@ void AbilityManager::printAbilities() const {
 bool AbilityManager::isAbleToUseAbility() const {
     return !this->abilities_.empty();
 }
+
+std::unique_ptr<Ability> AbilityManager::createAbility(int type) const {
+    switch (type) {
+        case 0:
+            return std::make_unique<DoubleDamage>();
+        case 1:
+            return std::make_unique<Scanner>();
+        case 2:
+            return std::make_unique<RandomAttack>();
+        default:
+            throw std::runtime_error("Неизвестный тип способности");
+    }
+}
+
+AbilityManager::AbilityManager(const std::vector<int>& abilityTypes) {
+    for (int type : abilityTypes) {
+        abilities_.push_back(createAbility(type));
+    }
+}
+
+std::vector<int> AbilityManager::getAvailableAbilities() const {
+    std::vector<int> types;
+    for (const auto& ability : abilities_) {
+        if (dynamic_cast<DoubleDamage*>(ability.get())) {
+            types.push_back(0);
+        } else if (dynamic_cast<Scanner*>(ability.get())) {
+            types.push_back(1);
+        } else if (dynamic_cast<RandomAttack*>(ability.get())) {
+            types.push_back(2);
+        }
+    }
+    return types;
+}
+
+void AbilityManager::setAbilities(const std::vector<int>& abilityTypes) {
+    abilities_.clear();
+    for (int type : abilityTypes) {
+        abilities_.push_back(createAbility(type));
+    }
+}

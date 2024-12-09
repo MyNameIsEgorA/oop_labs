@@ -24,26 +24,26 @@ private:
     void initializeGame();
     void gameLoop();
     void handleUserInput();
-    void makeEnemyTurn();
+    void makeEnemyTurn() const;
     void printGameState() const;
-    bool isGameOver() const;
-    bool hasUserWon() const;
+    [[nodiscard]] bool isGameOver() const;
+    [[nodiscard]] bool hasUserWon() const;
     void setupNewRound();
     void setupNewGame();
     
-    std::pair<int, int> getFieldSize() const;
-    std::vector<ShipsInfo> getUserShipsInfo() const;
-    std::vector<ShipsInfo> generateEnemyShipsInfo() const;
+    [[nodiscard]] static std::pair<int, int> getFieldSize() ;
+    [[nodiscard]] static std::vector<ShipsInfo> getUserShipsInfo() ;
+    static std::vector<ShipsInfo> generateEnemyShipsInfo() ;
     bool placeShip(Field& field, const Ship& ship, int x, int y, Orientation orientation);
     
-    int fieldWidth;
-    int fieldHeight;
+    int fieldWidth{};
+    int fieldHeight{};
     std::unique_ptr<Field> userField;
     std::unique_ptr<Field> enemyField;
     std::unique_ptr<ShipManager> userShipManager;
     std::unique_ptr<ShipManager> enemyShipManager;
     std::unique_ptr<AbilityManager> abilityManager;
-    int currentRound;
+    int currentRound{};
     bool isRunning;
 };
 

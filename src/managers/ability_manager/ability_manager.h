@@ -14,13 +14,16 @@
 class AbilityManager {
 public:
     AbilityManager();
+    explicit AbilityManager(const std::vector<int>& abilityTypes);
     std::unique_ptr<Ability> getAbility();
     void addAbility();
     void printAbilities() const;
-
+    [[nodiscard]] std::vector<int> getAvailableAbilities() const;
+    void setAbilities(const std::vector<int>& abilityTypes);
     [[nodiscard]] bool isAbleToUseAbility() const;
 
 private:
+    std::unique_ptr<Ability> createAbility(int type) const;
     std::vector<std::unique_ptr<Ability>> abilities_;
 };
 

@@ -3,12 +3,14 @@
     GameState::GameState(int width, int height, int round,
                         const Field& userField, const Field& enemyField,
                         const std::vector<ShipSize>& userShips,
-                        const std::vector<ShipSize>& enemyShips)
+                        const std::vector<ShipSize>& enemyShips,
+                        const std::vector<int>& abilities)
         : fieldWidth(width)
         , fieldHeight(height)
         , currentRound(round)
         , userShipSizes(userShips)
-        , enemyShipSizes(enemyShips) {
+        , enemyShipSizes(enemyShips)
+        , abilities(abilities) {
 
         userFieldVisible.resize(height, std::vector<bool>(width));
         enemyFieldVisible.resize(height, std::vector<bool>(width));
@@ -57,6 +59,12 @@
         }
         os << '\n';
 
+        os << state.abilities.size() << '\n';
+        for (const auto& ability : state.abilities) {
+            os << ability << ' ';
+        }
+        os << '\n';
+
         return os;
     }
 
@@ -100,6 +108,12 @@
         for (int i = 0; i < size; ++i) {
             is >> temp;
             state.enemyShipSizes[i] = static_cast<ShipSize>(temp);
+        }
+
+        is >> size;
+        state.abilities.resize(size);
+        for (int i = 0; i < size; ++i) {
+            is >> state.abilities[i];
         }
 
         return is;
