@@ -186,7 +186,6 @@ void GameManager::handleUserInput() {
         saveGame("save");
         std::cout << "Игра сохранена\n";
     } else if (command == "exit") {
-        saveGame("save");
         isRunning = false;
     }
 }

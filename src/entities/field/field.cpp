@@ -146,7 +146,7 @@ bool Field::checkArea(int x, int y) const {
 }
 
 
-void Field::attackCell(int x, int y, Attack attack) {
+void Field::attackCell(int x, int y, const Attack attack) {
     if (x < 0 || y < 0 || x >= width_ || y >= height_) {
         throw AttackOutOfRangeException();
     }
